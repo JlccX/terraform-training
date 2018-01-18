@@ -1,0 +1,305 @@
+A long time ago, in a data center far, far away an ancient group of powerful beings known as sysadmins used to deploy infrastructure manually. Every server, every route table, every database configuration, and every load balancer was created and managed by hand. It was a dark and fearful age(configuration drift age): fear of downtime, fear of accidental misconfiguration, fear of slow and fragile deployments and fear of what would happen if the sysadmins fell to the dark side(i.e. took a vacation). The good news is that thanks to the DevOps Rebel Alliance, there is now a better way to do things: Terraform.
+
+
+The manual configuration used on the past brought us to configuration drift problems between servers and hardware devices, as a result the number of bugs increases and developers shrug and say “It works on my machine”, outages and downtime become more frequent.
+
+The syntax of terraform configuration is called HashiCorp Configuration Language (HCL)
+It is mean to strike a balance between human readable and editable as well as being machine friendly(because it reads json also).
+
+
+VPC -> Virtual Private Cloud
+
+
+
+
+terraform init -> cmd to install the required plugins used to run the IAC
+
+terraform plan ->
+
+The plan command lets you see what terraform will do before unleashing it onto the world.
+Resources with a plus(+) sign are going to be created, resources with a minus(-) sign are going to be deleted, and resources with a tilde sign(~) are going to be modified.
+
+terraform apply
+
+Cmd used to execute the action and events specified on the file instructions.
+
+
+I’m on the page 52 -> 54 of 152
+
+Terraform up and running
+
+
+ami = "ami-2757f631"
+ami = "ami-b374d5a5"
+
+The file used for this example is: main.0.tf
+
+
+
+terraform destroy -> Command used to destroy or remove the instance specified on the main.tf file.
+
+
+
+
+Pluralsight - MyChannels -> Company
+
+
+
+ingress -> rules that are coming intro the instance
+
+
+egress -> rules that heading out from the instance
+
+
+The lifecycle parameter is an example of a meta-parameter, or a parameter that exists on just every resource in terraform.
+You can add a lifecycle block to any resource to configure how that resource should be created, updated or destroyed. 
+One of the available lifecycle settings is create_before_destroy, which If set to true, tells terraform to always create a replacement resource before destroying the original resource. For example, if you set create_before_destroy to true in a instance, it means that terraform will first create a new instance, wait for it to come up, and then it will remove the old EC2 instance.
+If you set this parameter to true on a specific resource you also have to set it to true  on every depending resource. 
+
+
+ASG -> AutoScalingGroup
+
+The ELB has a trick, it can periodically check the health of your EC2 instances and, if an instance is unhealthy, it will automatically stop routing traffic to it.
+To enable this feature we should add the health_check block.
+
+To allow the health check request we need to modify the ELB’s security group to allow outbound requests:
+
+
+I’m on page 68 (70 of 152)
+
+
+	+ aws_autoscaling_group.example
+	+ aws_elb.example
+	+ aws_launch_configuration.example
+	+ aws_security_group.elb
+	+ aws_security_group.instance
+
+
+Terraform loads all the files with extension tf, and only one configuration file is allowed by provider.
+Terraform will not recurse into any sub-directories. Each file is loaded in alphabetical order, and the contents of each configuration file are appended into one configuration. Terraform also have an override file construct. Override files are merged rather than appended.
+
+Terraform construct a DAG (Directed Acyclic Graph), of that configuration. (This technique is similar to what puppet uses) 
+
+terraform apply -var-file="secret.tfvars"   (command used to load a file with variables)
+
+
+Define outputs -> Command used to show output like IP Adresses, etc to the user after to finish the infraesctructure creation.
+
+For example also we could call an output parameter after the infrestructure creation like:
+
+terraform output ip
+
+
+
+/*
+A Multiline
+comment
+*/
+
+# Single line comments (With hash sign in front of the text)
+
+Values are assigned with the syntax of: key = value (whitespaces doesn’t matter)
+
+String are in double-quotes
+
+
+The variables parameters should be used using the var prefix like: ${var.myVariable}
+
+Attributes of other resources:
+
+“${aws_instance.web_server.id}”
+
+Will interpolate the ID attribute from the aws_instance resource named web_server.
+
+
+
+The most important thing that we are going to configure with Terraform are the resources.
+Resources are the most important component of the infraestructure.
+It can be a Physical server, virtual machine, containe, email provider, DNS record, or a database provider.
+
+The combination of a name and type must be unique.
+
+
+The lifecycle attribute have 3 options:
+
+-create_before_destroy (bool), This flag is used to ensure replacement of a resource is created before the original instance is destroyed. (As an example this can be used to create a new DNS record before to delete the old one)
+
+-prevent_destroy (bool), This flags add extra protection again the destruction of a resource. When this is set to true, any resource that contain this flag will return an error message.
+
+-ignore_changes (list of strings), customize how diffs are evaluated for resources, allowing individual attributes to be ignored through changes. As an example to ignore dynamic changes to the resource from external resources.
+
+
+
+When a resource depends on a module, everything int that module must be created before the resource is created.
+
+
+When you run terraform commands, it looks for files with the .tf extension in the current directory where you run it from. It doesn’t take files from subdirectories. Be careful terraform will load all files with the .tf extension if you run it without arguments.
+
+
+plan -> Show us what changes terraform will make to our infraestructure
+apply -> apply changes to our infrastructure
+destroy -> destroy the infrastructure built with terraform.
+
+
+terraform init -> This should be the first command used, this command install any required provider.
+terraform plan
+terraform apply
+terraform show -> used to show the status of the infrastructure
+
+terraform state list -> used to print a complete state in a human-readable format(because is saved in a json format).
+terraform state show 
+
+terraform validate -> Command used to validate or verify the syntax and the terraform 				configuration files, and returns errors about it.
+terraform fmt -> command used to format neatly the configuration files.
+
+
+terraform plan -target aws_launch_configuration.example -> Find out what to do?
+terraform plan -destroy -out base-destroy-"date +'%s'" -> find out what to do ? This command is going to save a plan that will 			destroy all resources as base-destroy-epochtime.plan
+
+terraform graph -> command used to show the graph terraform infrastructure
+
+terraform graph > myFile.dot -> Then we could use the Graphviz app to see the terraform graph (or the web online version - http://webgraphviz.com/) this tool allow us to create an svg image from the structure.
+
+
+terraform destroy -target=aws_instance.my_Instance
+
+
+terraform destroy -> used to delete all the infrastructure created.
+
+
+The terraform apply command, when you execute it, it will read your templates and it will try to create an infraestructure exactly as you defined in your templates. We will go deeper into how terraform exactly processes templates in a following cha
+
+When the terraform apply execution finish, it shows a summary indicating the number of resources that you’ve added, changed and destroyed, and also the outputs If you have it.
+
+
+Providers are something to use to configure access to the service you create resources for.
+Currently terraform have more than 40 providers, this impressive list includes not only the major cloud providers such as AWS, Google Cloud, Microsoft Azure, it also contains the small ones like Fastly (CDN - Content Delivery Network), Heroku, CloudStack, etc. 
+
+
+Show images free amazon services. (but is not terraform)
+
+AWS is not free to use, but luckily we can use the Free Tier that they provide us for free with certain limitations during one year for new accounts. For example we can use a single EC2 instance for 750 hours a month for 12 months for free, as long as it have the t2.micro type.
+
+
+AMI (Amazon Machine Image): is a source image which an instance is created from.
+You can create your own, use the ones provided by AWS, or select one from a community at AWS MarketPlace.
+
+Security Group (SG): Is like a firewall. You can attach multiples SG to an instance and define inbound and outbound rules. It allows you to configure access not only for IP Ranges, but also for other security groups.
+
+
+“Using root accounts access keys is considered a bad practice when you work with AWS. You should create new account and assign permission with AIM”
+
+On the next link we can read about best practices for AWS.
+
+https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html
+
+
+
+There are three ways to create infraestructure on AWS.
+Using the manul way trough the WebUI, using aws cli from bash console (scripts) and the last one using terraform templates(HCL - HashiCorp Configuration Language).
+
+To save and recover the credentials on terraform we can use 
+static parameters, environment variables, and a credentials file.
+
+Resources are components of your infraestructure. It can be something comples as a virtual server or something as simple as a DNS record. Each resource belong to a provider, and the type of the resource is suffixed with the provider name.
+
+E.g.
+
+resource “provider-name_resource-type” “resource-name” {
+	parameter-name = parameter-value
+}
+
+
+ resource "aws_security_group" "instance" {
+   name = "terraform-example-instance"
+
+   ingress {
+     from_port   = "${var.server_port}"
+     to_port     = "${var.server_port}"
+     protocol    = "tcp"
+     cidr_blocks = [“0.0.0.0/0”]
+   }
+ }
+
+The combination of resource-type and resource name must be unique in your template.
+
+
+
+The elastic IP address always should be used by an active instance, because the cost of it without an instance related to it is higher than usual.
+
+
+The basic object that we should create is one instance, this object needs to have at least two required parameters: ami and instance_type.
+
+
+The tags parameter is a map of tags for the instance.
+
+
+	Working with state in terraform
+
+	+ If you are curious about the terraform apply command output show, we could learn how the terraform state works.
+	+ the state file (terraform.tfstate), save all the resources you’ve created. Terraform obtains all the information possible about the resource and writes it to state file. This makes the state file so important that you never want to lose it after you create your environment. Losing the state file mean losing control of your environment through terraform. If you lost for any reason this file you need to remove manually all the resources created, this can be a tedious task if you have a huge infraestructure.
+
+
+
+	IAC -> Infraestructure as code.
+	
+	Terraform is focused on IaC (infraestructure as code), meanwhile tools like puppet, chef and ansible are excellent at managing appliccations and services, but they are focused on software configuration rather than building infrastructure components.
+
+
+	This assumes that you are using the “us-east-1“ region and your amazon account has a default vpc (virtual private cloud).
+	If you are not in us-east-1 region then replace the ami with the appropriate ubuntu ami from your region.
+
+
+	aws_eip -> The aws_eip type manages Amazon elastic ip addresses.
+
+
+Terraform also has the concept of tainting and untainting resources. Tainting resources marks a single resource to be destroyed and recreated on the next apply. It doesn’t change the resource but rather the current state of the resource. Untainting reverses the marking.
+
+
+
+The file can be called anything. We’ve just named it variables.tf for
+convenience and identification. Remember all files that end in .tf will be loaded
+by Terraform.
+
+
+Let’s create a few variables in this file now. 
+Variables can come in a number of types:
+• Strings — String syntax. Can also be Boolean’s: true or false.
+• Maps — An associative array or hash-style syntax.
+• Lists — An array syntax.
+Let’s take a look at some string variables first.
+
+
+Terraform variables are created with a variable block. They have a name and an
+optional type, default, and description.
+
+terraform apply
+Error: provider.aws: multiple configurations present; only one configuration is allowed per provider.
+
+
+
+
+provider definition img -> Terraform book page 44 of 331
+
+resource definition page 46 of 331 Terraform book
+
+
+Is recomended always to execute plan before apply, to  avoid break your infrastructure.
+
+
+Terraform apply command prompts a confirmation to build the infrastructure, you can avoid it adding the -auto-approve flag. (the same happen for terraform plan, but use it carefully because it contains your secrets as text plain)
+
+
+ terraform plan -target aws_type.resource_name. (cmd used to plan only for one resource)
+
+Terraform book toy page 73 of 331
+
+
+
+
+Toy pag 69 of 205 Terraform up and running
+
+
+JIC:
+
+https://www.terraform.io/docs/configuration/resources.html

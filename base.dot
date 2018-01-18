@@ -1,0 +1,36 @@
+digraph {
+	compound = "true"
+	newrank = "true"
+	subgraph "root" {
+		"[root] aws_autoscaling_group.example" [label = "aws_autoscaling_group.example", shape = "box"]
+		"[root] aws_elb.example" [label = "aws_elb.example", shape = "box"]
+		"[root] aws_launch_configuration.example" [label = "aws_launch_configuration.example", shape = "box"]
+		"[root] aws_security_group.elb" [label = "aws_security_group.elb", shape = "box"]
+		"[root] aws_security_group.instance" [label = "aws_security_group.instance", shape = "box"]
+		"[root] data.aws_availability_zones.all" [label = "data.aws_availability_zones.all", shape = "box"]
+		"[root] provider.aws" [label = "provider.aws", shape = "diamond"]
+		"[root] aws_autoscaling_group.example" -> "[root] aws_elb.example"
+		"[root] aws_autoscaling_group.example" -> "[root] aws_launch_configuration.example"
+		"[root] aws_elb.example" -> "[root] aws_security_group.elb"
+		"[root] aws_elb.example" -> "[root] data.aws_availability_zones.all"
+		"[root] aws_elb.example" -> "[root] var.server_port"
+		"[root] aws_launch_configuration.example" -> "[root] aws_security_group.instance"
+		"[root] aws_launch_configuration.example" -> "[root] var.key_name"
+		"[root] aws_security_group.elb" -> "[root] provider.aws"
+		"[root] aws_security_group.instance" -> "[root] provider.aws"
+		"[root] aws_security_group.instance" -> "[root] var.server_port"
+		"[root] data.aws_availability_zones.all" -> "[root] provider.aws"
+		"[root] meta.count-boundary (count boundary fixup)" -> "[root] aws_autoscaling_group.example"
+		"[root] meta.count-boundary (count boundary fixup)" -> "[root] output.elb_dns_name"
+		"[root] meta.count-boundary (count boundary fixup)" -> "[root] output.public_port"
+		"[root] meta.count-boundary (count boundary fixup)" -> "[root] var.access_key"
+		"[root] meta.count-boundary (count boundary fixup)" -> "[root] var.private_key_path"
+		"[root] meta.count-boundary (count boundary fixup)" -> "[root] var.secret_key"
+		"[root] output.elb_dns_name" -> "[root] aws_elb.example"
+		"[root] output.public_port" -> "[root] var.server_port"
+		"[root] provider.aws (close)" -> "[root] aws_autoscaling_group.example"
+		"[root] root" -> "[root] meta.count-boundary (count boundary fixup)"
+		"[root] root" -> "[root] provider.aws (close)"
+	}
+}
+

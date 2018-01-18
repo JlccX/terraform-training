@@ -1,0 +1,25 @@
+provider "aws" {
+    region = "us-east-1"
+    access_key = "${var.access_key}"
+    secret_key = "${var.secret_key}"
+}
+
+resource "aws_instance" "my-example1" {
+    ami = "ami-2757f631"
+    instance_type = "t2.micro"
+    #Name = "terraform-training"
+
+    tags {
+        name = "terraform-training-1"
+    }
+}
+
+resource "aws_instance" "my-example2" {
+    ami = "ami-2757f631"
+    instance_type = "t2.micro"
+    #Name = "terraform-training"
+
+    tags {
+        name = "terraform-training-2"
+    }
+}
