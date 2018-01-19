@@ -158,6 +158,8 @@ terraform plan -destroy -out base-destroy-"date +'%s'" -> find out what to do ? 
 
 terraform graph -> command used to show the graph terraform infrastructure
 
+	terraform get ?
+
 terraform graph > myFile.dot -> Then we could use the Graphviz app to see the terraform graph (or the web online version - http://webgraphviz.com/) this tool allow us to create an svg image from the structure.
 
 
@@ -292,9 +294,34 @@ Terraform apply command prompts a confirmation to build the infrastructure, you 
 
  terraform plan -target aws_type.resource_name. (cmd used to plan only for one resource)
 
-Terraform book toy page 73 of 331
+  terraform will also parse any environment variable that are prefixed with TF_VAR.
+  for example, if terraform finds the an environment variable called: TF_VAR_access_code=xyz
+  it will use the value of the environment variable as the string value of access_code variable.
 
 
+	prevent_destroy. (s3 resource)
+	prevent_destroy is the second lifecycle setting you’ve seen (the first was cre
+	ate_before_destroy). When you set prevent_destroy to true on a resource,
+	any attempt to delete that resource (e.g., by running terraform destroy) will
+	cause Terraform to exit with an error. This is a good way to prevent accidental
+	deletion of an important resource, such as this S3 bucket, which will store all of
+	your Terraform state. Of course, if you really mean to delete it, you can just com‐
+	ment that setting out.
+
+
+
+
+
+Terraform book, page 166 of 331, have an interesting example (how to execute a script remotely)
+
+Terraform book toy page 96 (226) of 331
+Page 233 - Chpter Building a multi-environment architecture.
+
+
+
+
+
+Pag 66 of 205 -> there are exampels of variables to visio
 
 
 Toy pag 69 of 205 Terraform up and running
@@ -303,3 +330,11 @@ Toy pag 69 of 205 Terraform up and running
 JIC:
 
 https://www.terraform.io/docs/configuration/resources.html
+
+Good tutorial about terraform (the examples works)
+https://blog.gruntwork.io/an-introduction-to-terraform-f17df9c6d180
+
+
+
+
+

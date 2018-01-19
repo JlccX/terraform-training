@@ -1,0 +1,130 @@
+provider "aws" {
+    region = "us-east-1"
+    access_key = "${var.access_key}"
+    secret_key = "${var.secret_key}"
+}
+
+module "vpc" {
+    source          = "github.com/turnbullpress/tf_vpc.git?ref=v0.0.1"
+    name            = "web"
+    cidr            = "10.0.0.0/16"
+    public_subnet   = "10.0.1.0/24"
+}
+
+resource "aws_instance" "web" {
+    ami                             = "ami-33e4bc49"
+    instance_type                   = "t2.micro"
+    key_name                        = "${var.key_name}"
+    subnet_id                       = "${module.vpc.public_subnet_id}"
+    private_ip                      = "${var.instance_ips[count.index]}"
+    associate_public_ip_address     = true
+
+    vpc_security_group_ids = [ "${aws_security_group.hosts_group.id}" ]
+
+    # Don't add spaces after EOF
+    # This ami instance should have python installed.
+    user_data = <<-EOF
+                #!/bin/bash
+                #sudo apt-get update
+                #sudo apt-get install -y nginx
+                #sudo service nginx start
+                cd /home/ubuntu
+                echo "Hello, world" > index.html
+                python -m SimpleHTTPServer "${var.server_port}"
+                EOF
+
+    tags {
+        Name = "web-${format("%03d", count.index+1)}"
+    }
+
+    count = "${length(var.instance_ips)}"
+}
+
+resource "aws_elb" "web" {
+    name = "web-elb"
+
+    subnets             = ["${module.vpc.public_subnet_id}"]
+    security_groups     =  ["${aws_security_group.webserver_inbound.id}"]
+
+    listener {
+        instance_port       = 80
+        instance_protocol   = "http"
+        lb_port             = 80
+        lb_protocol         = "http"
+    }
+
+    instances = ["${aws_instance.web.*.id}"]
+}
+
+resource "aws_security_group" "webserver_inbound" {
+    name            = "webserver-inbound"
+    description     = "Allow HTTP traffic from anywhere"
+    vpc_id          = "${module.vpc.vpc_id}"
+
+    ingress {
+        from_port   = "${var.http_port}"
+        to_port     = "${var.http_port}"
+        protocol    = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+
+    ingress {
+        from_port   = 8
+        to_port     = 0
+        protocol    = "icmp"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+
+    egress {
+        from_port   = 0
+        to_port     = 0
+        protocol    = "-1"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+}
+
+resource "aws_security_group" "hosts_group" {
+    name            = "hosts-group"
+    description     = "Allow SSH and HTTP to web hosts"
+    vpc_id          = "${module.vpc.vpc_id}"
+
+    # SSH ports
+    ingress {
+        from_port   = "${var.ssh_port}"
+        to_port     = "${var.ssh_port}"
+        protocol    = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+
+    # HTTP access ports
+    ingress {
+        from_port   = 80
+        to_port     = 80
+        protocol    = "tcp"
+        cidr_blocks = ["${module.vpc.cidr}"]
+    }
+
+    egress {
+        from_port   = 0
+        to_port     = 0
+        protocol    = "-1"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+
+
+    ingress {
+        from_port   = 8
+        to_port     = 0
+        protocol    = "icmp"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+}
+
+
+#output "public_ip" {
+#    value = "${aws_instance.web_server.public_ip}"
+#}
+
+output "public_port" {
+    value = "${var.server_port}"
+}
