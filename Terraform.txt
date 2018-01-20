@@ -335,13 +335,15 @@ Page 72 of 205, image of the load balancer and autoscaling example.
 Pag 66 of 205 -> there are exampels of variables to visio
 
 
-Toy pag 69 of 205 Terraform up and running
+Toy pag 103 of 205 Terraform up and running
 
 
 
 	See chapter three ( page 102 from 231 pdf ) from the book - Getting started with terraform.
 	Watch chapter 6 -> looks good. How to perform changes without interrupting the service 
 
+
+	Toy en la pagina 161 de 231 Getting started terraform
 
 
 JIC:
