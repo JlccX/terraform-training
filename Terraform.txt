@@ -312,6 +312,15 @@ Terraform apply command prompts a confirmation to build the infrastructure, you 
 
 
 
+
+	 aws_s3_bucket.terraform_state: aws_s3_bucket.terraform_state: the plan would destroy this resource, but it currently has lifecycle.prevent_destroy set to true. To avoid this error and continue with the plan, either disable lifecycle.prevent_destroy or adjust the scope of the plan using the -target flag. ()
+lifecycle {
+        prevent_destroy = true -> this option throw the previous error message
+    }
+
+
+
+
 Terraform book, page 166 of 331, have an interesting example (how to execute a script remotely)
 
 Terraform book toy page 96 (226) of 331
@@ -321,10 +330,18 @@ Page 233 - Chpter Building a multi-environment architecture.
 
 
 
+Page 72 of 205, image of the load balancer and autoscaling example.
+
 Pag 66 of 205 -> there are exampels of variables to visio
 
 
 Toy pag 69 of 205 Terraform up and running
+
+
+
+	See chapter three ( page 102 from 231 pdf ) from the book - Getting started with terraform.
+	Watch chapter 6 -> looks good. How to perform changes without interrupting the service 
+
 
 
 JIC:
