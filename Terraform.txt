@@ -319,6 +319,39 @@ lifecycle {
     }
 
 
+	
+	
+	Performing blue-green deployments with terraform (create 2 paralells servers new one and old one, and remmove the old one and use the new one instead of it.)
+	
+	The idea behind blue-green deployment is that instead of updating existing instances of an
+application, you create complete brand new production environment side by side with the existing
+one. Then, if it looks good, you switch the traffic to this new environment. If nothing breaks, you
+delete the old one. The new environment is called green, while the existing one is blue. As you might
+have guessed, the idea goes hand in hand with Immutable Infrastructure concept and extends it beyond
+single server to complete clusters of machines.
+
+
+We could use terrahelp encrypt to encrypt the state file.
+
+RDS (relational database service)
+
+
+
+	AWS Auto-scaling groups (ASG) allow you to adjust your infrastructure needs to the load. They can
+automatically increase in size as your usage grows and decrease back to a certain amount of machines
+when traffic spike is gone. With ASG, you don't create instances by hand: you only need to
+specify launch configuration--consider it a template, an instance will be created from. In addition,
+ASG allows configuring scaling based on metrics from CloudWatch or Simple Queue Service
+(SQS). We won't use this feature though, as we are looking only for blue-green deployments
+implementation.
+Auto-scaling group can have ELB in front of it, so it balances all the traffic to instances in this group.
+If we want to implement blue-green deployment, we have to use it
+
+But it is also a good thing if we want to achieve Immutable Infrastructure: now we don't have any
+other choice except to replace complete machines. We could even remove a key pair attribute in order
+to launch configuration to ensure that instances are only replaced and not updated.
+
+
 
 
 Terraform book, page 166 of 331, have an interesting example (how to execute a script remotely)
@@ -355,5 +388,12 @@ https://blog.gruntwork.io/an-introduction-to-terraform-f17df9c6d180
 
 
 
+Getting started with terraform contain more advanced info about how to merge state files adding new features
+
+
+
+
+Colaborative infrastructure -> How to manage template and colaborate between many people
+Testing infrastructure.
 
 
