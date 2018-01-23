@@ -2,3 +2,4 @@ secret.tf
 *.secret.*
 *.tfstate
 *.tfstate.*
+.DS_Store

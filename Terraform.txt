@@ -351,9 +351,6 @@ S3 buckets
 
 
 
-
-
-
 	AWS Auto-scaling groups (ASG) allow you to adjust your infrastructure needs to the load. They can
 automatically increase in size as your usage grows and decrease back to a certain amount of machines
 when traffic spike is gone. With ASG, you don't create instances by hand: you only need to
