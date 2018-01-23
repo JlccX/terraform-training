@@ -14,7 +14,7 @@ resource "aws_launch_configuration" "example" {
   key_name        = "JoseTest_KeyPair"
   
   user_data = <<-EOF
-              #!/bin/bash
+                #!/bin/bash
                 cd /home/ubuntu
                 echo "Hello, world<br/>" > index.html
                 echo "Stage: ${var.name}<br/>" >> index.html
