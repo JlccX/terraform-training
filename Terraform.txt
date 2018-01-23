@@ -335,6 +335,23 @@ We could use terrahelp encrypt to encrypt the state file.
 
 RDS (relational database service)
 
+STORING MODEULES REMOTELY
+
+Remember the source attribute of the module?
+module "mighty_trousers" {
+source = "./modules/application"
+Well, it turns out that it doesn't have to be a path to a local directory. In fact, there are multiple
+supported sources for modules:
+GitHub
+BitBucket
+Generic Git and Mercurial repositories
+HTTP URLs
+S3 buckets
+
+
+
+
+
 
 
 	AWS Auto-scaling groups (ASG) allow you to adjust your infrastructure needs to the load. They can
@@ -352,6 +369,26 @@ other choice except to replace complete machines. We could even remove a key pai
 to launch configuration to ensure that instances are only replaced and not updated.
 
 
+terraform graph | dot -Tpng > graph.png
+
+
+The create_before_destroy boolean parameter allows us to tell Terraform to first create new
+resource and then destroy previous one in case of recreation.
+The prevent_destroy parameter, also boolean, marks resource as indestructible and can save
+you some nerves. One example of a resource that can benefit from this option is an Elastic IP--a
+dedicated IP address inside AWS than you can attach to an EC2 instance.
+
+
+
+There is another advantage of graphs inside Terraform--it allows you to process nodes in parallel if
+they don't depend on each other. By default, up to 10 graph nodes can be processed in parallel. You
+could specify the -parallelism flag for apply, plan, and destroy commands, but it's rather an
+advanced operation, and in most cases, you don't need it.
+
+
+
+
+TERRAFORM has support for secrets with VAULT. Read about it.
 
 
 Terraform book, page 166 of 331, have an interesting example (how to execute a script remotely)
@@ -395,5 +432,28 @@ Getting started with terraform contain more advanced info about how to merge sta
 
 Colaborative infrastructure -> How to manage template and colaborate between many people
 Testing infrastructure.
+
+
+Chapter 5 from the book - Getting started with terraform.
+Are we going to use Terraform with some other tools like Puppet, Chef, etc. ?
+
+	We could use the next tools with terraform.
+
+Chef, Ansible, and Puppet: For configuration management
+Inspec and TestKitchen: For testing
+Terragrunt and Terraforming: As a helper for Terraform operations
+Git, git-crypt, GitLab, and GitLab CI: For teamwork
+S3 and Consul: For storage
+Bash and Ruby: For scripting
+
+
+
+
+
+terraform state rm module.foo   (command used to remove a module loaded), sometimes is better to remove the state files
+
+
+
+
 
 

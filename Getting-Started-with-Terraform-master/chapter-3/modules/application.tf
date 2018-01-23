@@ -32,6 +32,7 @@ resource "aws_instance" "app-server" {
 
   tags {
     Name = "${var.name}"
+    MyValue = "Terraform instance"
   }
 }
 
