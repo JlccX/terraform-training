@@ -109,6 +109,8 @@ resource "aws_elb" "example" {
         myTag = "aws-elb-instance ${var.name}"
         Name = "aws-elb ${var.name}"
     }
+
+    #instances = ""   Verify how we could use this parameter ?
 }
 
 resource "aws_security_group" "elb" {

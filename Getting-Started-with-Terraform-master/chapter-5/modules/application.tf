@@ -36,8 +36,7 @@ resource "aws_instance" "app-server" {
   ami                    = "${data.aws_ami.app-ami.id}"
   instance_type          = "${lookup(var.instance_type, var.environment)}"
   subnet_id              = "${var.subnet_id}"
-  vpc_security_group_ids = ["${concat(var.extra_sgs,
-aws_security_group.allow_http.*.id)}"]
+  vpc_security_group_ids = ["${concat(var.extra_sgs, aws_security_group.allow_http.*.id)}"]
 
   user_data = "${data.template_file.user_data.rendered}"
 

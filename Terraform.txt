@@ -271,6 +271,8 @@ Variables can come in a number of types:
 • Lists — An array syntax.
 Let’s take a look at some string variables first.
 
+Also we could take into account the meta-parameters as a kind of variable like count.
+
 
 Terraform variables are created with a variable block. They have a name and an
 optional type, default, and description.
@@ -384,8 +386,189 @@ advanced operation, and in most cases, you don't need it.
 
 
 
+1.- Shared storage for state files: To be able to use Terraform to update your infrastructure, each of your team members needs access to the same Terraform state files. That means you need to store those files in a shared location.
+2.-Locking state files: As soon as data is shared, you run into a new problem: locking. Without locking, if two team members are running Terraform at the same time, you may run into race conditions as multiple Terraform processes make concurrent updates to the state files, leading to conflicts, data loss, and state file corruption.
+3.-Isolating state files: When making changes to your infrastructure, it’s a best practice to isolate different environments. For example, when making a change in the staging environment, you want to be sure that you’re not going to accidentally break production. But how can you isolate your changes if all of your infrastructure is defined in the same Terraform state file?
+
+Secrets: All data in Terraform state files is stored in plaintext. This is a problem because certain Terraform resources need to store sensitive data. For example, if you use the aws_db_instance resource to create a database, Terraform will store the username and password for the database in a state file with no encryption whatsoever. Storing plaintext secrets anywhere is a bad idea, including version control. This is an open issue in the Terraform community, and we only have partial solutions available at this point, as discussed below.
+
+
+We typically recommend Amazon S3 for the following reasons:
+It’s a managed service, so you don’t have to deploy and manage extra infrastructure to use it.
+It’s designed for 99.999999999% durability and 99.99% availability, which effectively means it’ll never lose your data or go down.
+It supports encryption, which reduces worries about storing sensitive data in state files. Anyone on your team who has access to that S3 bucket will be able to see the state files in an unencrypted form, which is not ideal, but at least it’s encrypted at rest in S3 and in transit thanks to SSL.
+It supports versioning, so every revision is stored, and you can always roll back to an older version if something goes wrong.
 
 TERRAFORM has support for secrets with VAULT. Read about it.
+
+Unconfiguring a Backend
+If you no longer want to use any backend, you can simply remove the configuration from the file. Terraform will detect this like any other change and prompt you to reinitialize.
+
+
+Terraform does not have for-loops or other traditional procedural logic built into the
+language, so this syntax will not work. However, almost every Terraform resource has
+a meta-parameter you can use called count. This parameter defines how many copies
+of the resource to create. Therefore, you can create three IAM users as follows:
+
+	resource “aws_iam_user” “example” {
+		count = 3
+		name  = “my-user-${count.index}”
+	}
+
+When you use the splat character, you get back a list, so you need to wrap the output
+variable with brackets:
+
+	output "all_arns" {
+		value = ["${aws_iam_user.example.*.arn}"] #[] because is an array
+	}
+
+
+	Sets of counted resources using splat (count splat ??)
+
+	Terraform doesn’t support if-statements, so this code won’t work. However, you can
+	accomplish the same thing by using the count parameter and taking advantage of two
+	properties:
+	1. In Terraform, if you set a variable to a boolean true (that is, the word true
+	without any quotes around it), it will be coerced into a 1, and if you set it to a
+	boolean false, it will be coerced into a 0.
+	2. If you set count to 1 on a resource, you get one copy of that resource; if you set
+	count to 0, that resource is not created at all.
+	Putting these two ideas
+
+	count=“${var.enable_autoscaling}” (Terraform up and running page 134 of 205 (114))
+
+	count = “${var.enable_autoscaling ? 1 : 0}”
+
+	count = “${var.environment == “production” ? 4 : 2}”
+
+	cidr = “${var.region} != “us-east-1” ? “172.16.0.0/12” : “172.18.0.0/12”}”
+
+	ALSO IS POSSIBLE TO USE the IF else STATEMENT using a combination with count count = “${1-var.enable_autoscaling}”
+
+	COUNT has limitations like is not possible to use dynamic values e.g. from a database
+
+	
+
+	CLOUD_WATCH_ALARM in the cluster is over 90% during a 5-minute period:
+	resource "aws_cloudwatch_metric_alarm" "high_cpu_utilization" {
+	alarm_name = "${var.cluster_name}-high-cpu-utilization"
+	namespace = "AWS/EC2"
+	metric_name = "CPUUtilization"
+	dimensions = {
+	AutoScalingGroupName = "${aws_autoscaling_group.example.name}"
+	}
+	comparison_operator = "GreaterThanThreshold"
+	evaluation_periods = 1
+	period = 300
+	statistic = "Average"
+		threshold = 90
+	unit = "Percent"
+		}
+	This works fine for a CPU Utilization alarm, but what if you wanted to add another
+	alarm that goes off when CPU credits are low?2
+
+
+	SEE TERRAFORM GOTCHAS
+
+	
+	Terraform configurations are just a language that make API calls to a provider. (In this case to AWS)
+
+	Note: that the region is configurable, you need to have care choosing an AMI Id because 
+	the AMI IDs are differents in each region though they use the same ami ID.
+	To avoid this we could use the asw_ami search filter option:
+	data "aws_ami" "ubuntu" {
+		most_recent = true
+		owners = ["099720109477"] # Canonical
+		filter {
+			name = "virtualization-type"
+			values = ["hvm"]
+		}
+		filter {
+			name = "architecture"
+			values = ["x86_64"]
+		}
+		filter {
+			name = "image-type"
+			values = ["machine"]
+		}
+		filter {
+			name = "name"
+			values = ["ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-*"]
+		}
+	}
+
+	Also is possible to use filtering to select different objects(created with a different script) 
+	for example a fixed public IP address.
+
+	example
+	data "aws_vpc" "environment" {
+		filter {
+			name   = "tag:Name"
+			values = "${var.environment}"
+		}
+	}
+
+
+	Interpolation syntax -> "${var.myVar}"
+	The interpolation syntax allow you to reference variables, attributes of resources, call functions, etc.
+	You can perform simple math operations in interpolations such as ${count.index+1}, and also you can use conditionals.
+
+	You can use the splat syntax to get a list of all the attributes  ${data.aws_subnet.example.*.cidr_block}
+
+
+	resource "aws_instance" "web" {
+  		subnet = "${var.env == "production" ? var.prod_subnet : var.dev_subnet}"
+	}
+
+	The support operators are:
+
+Equality: == and !=
+Numerical comparison: >, <, >=, <=
+Boolean logic: &&, ||, unary !
+A common use case for conditionals is to enable/disable a resource by conditionally setting the count:
+
+resource "aws_instance" "vpn" {
+  count = "${var.something ? 1 : 0}"
+}
+
+The Supported built-in functions can be seen at:
+
+https://www.terraform.io/docs/configuration/interpolation.html#abs-float-
+
+
+Terragrunt is a tool that we could use to manage the state files.
+
+We are going to use test kitchen as the tool for infrastructure tests.
+InsPec + Test Kitchen
+
+
+RECOMENDATIONS:
+
+The Golden Rule of Terraform:
+The master branch of the live repository should be a 1:1 representation of what’s actually deployed in production.
+
+1.- Always use separate state files for every environment.
+2.- Tag all your resources and have a kill script.
+3.- If you have problems verify duplicated objects into amazon.
+4.- You should have a folder structure to store all the terraform scripts. (including symlinks for the parameters configuration)
+5.- If you can’t spin up a full copy of your infra and test it, you don’t actually have “infrastructure as code”.
+
+
+
+If you go with the more environments option, you may find that managing a large
+number of environments by hand can become tedious and error prone. Once you’re
+at this stage, you may want to start using a deployment pipeline.
+
+To create infrastructure tests we are going to use Inspec (this tool is used to create chef tests)
+
+
+Search and add a template folder structure as an example for terraform scripts.
+Examples terraform up and running page: 185 of 205 (165)
+
+
+-> command to use to upload the state files into a s3 amazon bucket.
+
+terraform init -backend-config="bucket=terraform-test-jose" -backend-config="key=terraform.tfstate" -backend-config="region=us-east-1" -backend-config="encrypt=true"
 
 
 Terraform book, page 166 of 331, have an interesting example (how to execute a script remotely)
@@ -451,6 +634,32 @@ terraform state rm module.foo   (command used to remove a module loaded), someti
 
 
 
+/**********************
+Error: Error applying plan:
+
+1 error(s) occurred:
+
+* aws_s3_bucket.terraform_state (destroy): 1 error(s) occurred:
+
+* aws_s3_bucket.terraform_state: Error deleting S3 Bucket: BucketNotEmpty: The bucket you tried to delete is not empty. You must delete all versions in the bucket.
+	status code: 409, request id: C1CE21A371D3B8DA, host id: z9uzvd/U6opqbfvu2li9RRzp+cq3LGSHRvrhNA5kCCFYukMTc/F9jHAXyhANdCpLbU+NqZSZ+8g= "terraform-test-jose"
+
+Terraform does not automatically rollback in the face of errors.
+Instead, your Terraform state file has been partially updated with
+any resources that successfully completed. Please address the error
+above and apply again to incrementally change your infrastructure.
+
+Solves updating the prevent_destroy parameter to true.
+*********************/
 
 
+If for some reasons there are errors on the tfstate bucket file.
+You can download and rename the file to terraform.tfstate (because was downloaded as terraform.json)
+remove the .terrafom configuration folder
+comment the bucket state commands on the terraform script
+change the prevent_destroy parameter to true.
+execute the command terraform init
+execute the command: terraform destroy  
 
+
+Everytime that we change the s3 state configuration we need to remove the hidden .terraform configuration folder and execute again the terraform init command.
