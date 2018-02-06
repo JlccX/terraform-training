@@ -1,0 +1,29 @@
+driver:
+  name: terraform
+  variable_files:
+    - variables.tf
+
+provisioner:
+  name: terraform
+  
+
+
+
+transport:
+  name: ssh
+  ssh_key: "${var.private_key_path}"
+
+verifier:
+  name: terraform
+  groups:
+    - name: container
+      port: 22
+      username: ubuntu
+
+platforms:
+  - name: aws
+  #- name: ubuntu
+  #apply_timeout: 18000
+
+suites:
+  - name: example

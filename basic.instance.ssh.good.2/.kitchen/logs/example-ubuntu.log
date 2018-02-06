@@ -1,0 +1,381 @@
+I, [2018-02-02T12:14:42.282681 #3881]  INFO -- example-ubuntu: -----> Cleaning up any prior instances of <example-ubuntu>
+I, [2018-02-02T12:14:42.285257 #3881]  INFO -- example-ubuntu: -----> Destroying <example-ubuntu>...
+W, [2018-02-02T12:14:42.285941 #3881]  WARN -- example-ubuntu: Running command `terraform init -input=false -lock=true -lock-timeout=0s  -force-copy -backend=true  -get=true -get-plugins=true  -verify-plugins=true /Users/jose.choque/Documents/GitHub/terraform-training/basic.instance.ssh.good`
+I, [2018-02-02T12:14:42.332698 #3881]  INFO -- example-ubuntu: 
+I, [2018-02-02T12:14:42.332934 #3881]  INFO -- example-ubuntu: [0m[1mInitializing provider plugins...[0m
+I, [2018-02-02T12:14:42.614936 #3881]  INFO -- example-ubuntu: 
+I, [2018-02-02T12:14:42.615141 #3881]  INFO -- example-ubuntu: The following providers do not have any version constraints in configuration,
+I, [2018-02-02T12:14:42.615170 #3881]  INFO -- example-ubuntu: so the latest version was installed.
+I, [2018-02-02T12:14:42.615195 #3881]  INFO -- example-ubuntu: 
+I, [2018-02-02T12:14:42.615227 #3881]  INFO -- example-ubuntu: To prevent automatic upgrades to new major versions that may contain breaking
+I, [2018-02-02T12:14:42.615312 #3881]  INFO -- example-ubuntu: changes, it is recommended to add version = "..." constraints to the
+I, [2018-02-02T12:14:42.615333 #3881]  INFO -- example-ubuntu: corresponding provider blocks in configuration, with the constraint strings
+I, [2018-02-02T12:14:42.615352 #3881]  INFO -- example-ubuntu: suggested below.
+I, [2018-02-02T12:14:42.615374 #3881]  INFO -- example-ubuntu: 
+I, [2018-02-02T12:14:42.615525 #3881]  INFO -- example-ubuntu: * provider.aws: version = "~> 1.8"
+I, [2018-02-02T12:14:42.615571 #3881]  INFO -- example-ubuntu: 
+I, [2018-02-02T12:14:42.615586 #3881]  INFO -- example-ubuntu: [0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+W, [2018-02-02T12:14:42.629800 #3881]  WARN -- example-ubuntu: Running command `terraform workspace select kitchen-terraform-example-ubuntu`
+W, [2018-02-02T12:14:42.685849 #3881]  WARN -- example-ubuntu: Running command `terraform destroy -force -lock=true -lock-timeout=0s -input=false  -parallelism=10 -refresh=true   /Users/jose.choque/Documents/GitHub/terraform-training/basic.instance.ssh.good`
+I, [2018-02-02T12:15:01.158587 #3881]  INFO -- example-ubuntu: [0m[1maws_security_group.instance: Refreshing state... (ID: sg-759d3702)[0m
+I, [2018-02-02T12:15:06.800559 #3881]  INFO -- example-ubuntu: [0m[1maws_instance.web_server: Refreshing state... (ID: i-0c5e22d9b4e77242a)[0m
+I, [2018-02-02T12:15:12.475012 #3881]  INFO -- example-ubuntu: [0m[1m[32m
+I, [2018-02-02T12:15:12.475169 #3881]  INFO -- example-ubuntu: Destroy complete! Resources: 0 destroyed.[0m
+W, [2018-02-02T12:15:12.495549 #3881]  WARN -- example-ubuntu: Running command `terraform workspace select default`
+I, [2018-02-02T12:15:12.533127 #3881]  INFO -- example-ubuntu: [0m[32mSwitched to workspace "default".[0m
+W, [2018-02-02T12:15:12.547322 #3881]  WARN -- example-ubuntu: Running command `terraform workspace delete kitchen-terraform-example-ubuntu`
+I, [2018-02-02T12:15:12.590895 #3881]  INFO -- example-ubuntu: [0m[32mDeleted workspace "kitchen-terraform-example-ubuntu"![0m
+I, [2018-02-02T12:15:12.606264 #3881]  INFO -- example-ubuntu: Finished destroying <example-ubuntu> (0m30.32s).
+I, [2018-02-02T12:15:12.606545 #3881]  INFO -- example-ubuntu: -----> Testing <example-ubuntu>
+I, [2018-02-02T12:15:12.606669 #3881]  INFO -- example-ubuntu: -----> Creating <example-ubuntu>...
+W, [2018-02-02T12:15:12.606891 #3881]  WARN -- example-ubuntu: Running command `terraform init -input=false -lock=true -lock-timeout=0s  -upgrade -force-copy -backend=true  -get=true -get-plugins=true  -verify-plugins=true /Users/jose.choque/Documents/GitHub/terraform-training/basic.instance.ssh.good`
+I, [2018-02-02T12:15:12.645871 #3881]  INFO -- example-ubuntu: 
+I, [2018-02-02T12:15:12.646072 #3881]  INFO -- example-ubuntu: [0m[1mInitializing provider plugins...[0m
+I, [2018-02-02T12:15:12.646093 #3881]  INFO -- example-ubuntu: - Checking for available provider plugins on https://releases.hashicorp.com...
+I, [2018-02-02T12:15:18.915523 #3881]  INFO -- example-ubuntu: - Downloading plugin for provider "aws" (1.8.0)...
+I, [2018-02-02T12:16:18.526036 #3881]  INFO -- example-ubuntu: 
+I, [2018-02-02T12:16:18.526412 #3881]  INFO -- example-ubuntu: The following providers do not have any version constraints in configuration,
+I, [2018-02-02T12:16:18.526447 #3881]  INFO -- example-ubuntu: so the latest version was installed.
+I, [2018-02-02T12:16:18.526476 #3881]  INFO -- example-ubuntu: 
+I, [2018-02-02T12:16:18.526498 #3881]  INFO -- example-ubuntu: To prevent automatic upgrades to new major versions that may contain breaking
+I, [2018-02-02T12:16:18.526627 #3881]  INFO -- example-ubuntu: changes, it is recommended to add version = "..." constraints to the
+I, [2018-02-02T12:16:18.526660 #3881]  INFO -- example-ubuntu: corresponding provider blocks in configuration, with the constraint strings
+I, [2018-02-02T12:16:18.526681 #3881]  INFO -- example-ubuntu: suggested below.
+I, [2018-02-02T12:16:18.526699 #3881]  INFO -- example-ubuntu: 
+I, [2018-02-02T12:16:18.526715 #3881]  INFO -- example-ubuntu: * provider.aws: version = "~> 1.8"
+I, [2018-02-02T12:16:18.526767 #3881]  INFO -- example-ubuntu: 
+I, [2018-02-02T12:16:18.526844 #3881]  INFO -- example-ubuntu: [0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+W, [2018-02-02T12:16:18.542102 #3881]  WARN -- example-ubuntu: Running command `terraform workspace select kitchen-terraform-example-ubuntu`
+I, [2018-02-02T12:16:18.580538 #3881]  INFO -- example-ubuntu: [31m
+I, [2018-02-02T12:16:18.580851 #3881]  INFO -- example-ubuntu: Workspace "kitchen-terraform-example-ubuntu" doesn't exist.
+I, [2018-02-02T12:16:18.580890 #3881]  INFO -- example-ubuntu: 
+I, [2018-02-02T12:16:18.581069 #3881]  INFO -- example-ubuntu: You can create this workspace with the "new" subcommand.[0m[0m
+W, [2018-02-02T12:16:18.596876 #3881]  WARN -- example-ubuntu: Running command `terraform workspace new kitchen-terraform-example-ubuntu`
+I, [2018-02-02T12:16:18.634671 #3881]  INFO -- example-ubuntu: [0m[32m[1mCreated and switched to workspace "kitchen-terraform-example-ubuntu"![0m[32m
+I, [2018-02-02T12:16:18.634864 #3881]  INFO -- example-ubuntu: 
+I, [2018-02-02T12:16:18.634969 #3881]  INFO -- example-ubuntu: You're now on a new, empty workspace. Workspaces isolate their state,
+I, [2018-02-02T12:16:18.634989 #3881]  INFO -- example-ubuntu: so if you run "terraform plan" Terraform will not see any existing state
+I, [2018-02-02T12:16:18.635005 #3881]  INFO -- example-ubuntu: for this configuration.[0m
+I, [2018-02-02T12:16:18.649134 #3881]  INFO -- example-ubuntu: Finished creating <example-ubuntu> (1m6.04s).
+I, [2018-02-02T12:16:18.649275 #3881]  INFO -- example-ubuntu: -----> Converging <example-ubuntu>...
+W, [2018-02-02T12:16:18.650234 #3881]  WARN -- example-ubuntu: Running command `terraform workspace select kitchen-terraform-example-ubuntu`
+W, [2018-02-02T12:16:18.701788 #3881]  WARN -- example-ubuntu: Running command `terraform get -update /Users/jose.choque/Documents/GitHub/terraform-training/basic.instance.ssh.good`
+W, [2018-02-02T12:16:18.753405 #3881]  WARN -- example-ubuntu: Running command `terraform validate -check-variables=true    /Users/jose.choque/Documents/GitHub/terraform-training/basic.instance.ssh.good`
+W, [2018-02-02T12:16:19.155467 #3881]  WARN -- example-ubuntu: Running command `terraform apply -lock=true -lock-timeout=0s -input=false -auto-approve=true  -parallelism=10 -refresh=true   /Users/jose.choque/Documents/GitHub/terraform-training/basic.instance.ssh.good`
+I, [2018-02-02T12:16:54.621118 #3881]  INFO -- example-ubuntu: [0m[1maws_security_group.instance: Creating...[0m
+I, [2018-02-02T12:16:54.621430 #3881]  INFO -- example-ubuntu:   description:                           "" => "Managed by Terraform"
+I, [2018-02-02T12:16:54.621480 #3881]  INFO -- example-ubuntu:   egress.#:                              "" => "<computed>"
+I, [2018-02-02T12:16:54.621515 #3881]  INFO -- example-ubuntu:   ingress.#:                             "" => "2"
+I, [2018-02-02T12:16:54.621601 #3881]  INFO -- example-ubuntu:   ingress.2541437006.cidr_blocks.#:      "" => "1"
+I, [2018-02-02T12:16:54.621730 #3881]  INFO -- example-ubuntu:   ingress.2541437006.cidr_blocks.0:      "" => "0.0.0.0/0"
+I, [2018-02-02T12:16:54.621763 #3881]  INFO -- example-ubuntu:   ingress.2541437006.description:        "" => ""
+I, [2018-02-02T12:16:54.621784 #3881]  INFO -- example-ubuntu:   ingress.2541437006.from_port:          "" => "22"
+I, [2018-02-02T12:16:54.621802 #3881]  INFO -- example-ubuntu:   ingress.2541437006.ipv6_cidr_blocks.#: "" => "0"
+I, [2018-02-02T12:16:54.621905 #3881]  INFO -- example-ubuntu:   ingress.2541437006.protocol:           "" => "tcp"
+I, [2018-02-02T12:16:54.621925 #3881]  INFO -- example-ubuntu:   ingress.2541437006.security_groups.#:  "" => "0"
+I, [2018-02-02T12:16:54.621975 #3881]  INFO -- example-ubuntu:   ingress.2541437006.self:               "" => "false"
+I, [2018-02-02T12:16:54.622021 #3881]  INFO -- example-ubuntu:   ingress.2541437006.to_port:            "" => "22"
+I, [2018-02-02T12:16:54.622109 #3881]  INFO -- example-ubuntu:   ingress.516175195.cidr_blocks.#:       "" => "1"
+I, [2018-02-02T12:16:54.622161 #3881]  INFO -- example-ubuntu:   ingress.516175195.cidr_blocks.0:       "" => "0.0.0.0/0"
+I, [2018-02-02T12:16:54.622231 #3881]  INFO -- example-ubuntu:   ingress.516175195.description:         "" => ""
+I, [2018-02-02T12:16:54.622299 #3881]  INFO -- example-ubuntu:   ingress.516175195.from_port:           "" => "8080"
+I, [2018-02-02T12:16:54.622342 #3881]  INFO -- example-ubuntu:   ingress.516175195.ipv6_cidr_blocks.#:  "" => "0"
+I, [2018-02-02T12:16:54.622403 #3881]  INFO -- example-ubuntu:   ingress.516175195.protocol:            "" => "tcp"
+I, [2018-02-02T12:16:54.622471 #3881]  INFO -- example-ubuntu:   ingress.516175195.security_groups.#:   "" => "0"
+I, [2018-02-02T12:16:54.622535 #3881]  INFO -- example-ubuntu:   ingress.516175195.self:                "" => "false"
+I, [2018-02-02T12:16:54.622605 #3881]  INFO -- example-ubuntu:   ingress.516175195.to_port:             "" => "8080"
+I, [2018-02-02T12:16:54.623494 #3881]  INFO -- example-ubuntu:   name:                                  "" => "terraform-web-server-security-group"
+I, [2018-02-02T12:16:54.623799 #3881]  INFO -- example-ubuntu:   owner_id:                              "" => "<computed>"
+I, [2018-02-02T12:16:54.623879 #3881]  INFO -- example-ubuntu:   revoke_rules_on_delete:                "" => "false"
+I, [2018-02-02T12:16:54.623949 #3881]  INFO -- example-ubuntu:   vpc_id:                                "" => "<computed>"[0m
+I, [2018-02-02T12:17:04.622056 #3881]  INFO -- example-ubuntu: [0m[1maws_security_group.instance: Still creating... (10s elapsed)[0m[0m
+I, [2018-02-02T12:17:14.622451 #3881]  INFO -- example-ubuntu: [0m[1maws_security_group.instance: Still creating... (20s elapsed)[0m[0m
+I, [2018-02-02T12:17:24.622362 #3881]  INFO -- example-ubuntu: [0m[1maws_security_group.instance: Still creating... (30s elapsed)[0m[0m
+I, [2018-02-02T12:17:34.622275 #3881]  INFO -- example-ubuntu: [0m[1maws_security_group.instance: Still creating... (40s elapsed)[0m[0m
+I, [2018-02-02T12:17:35.739123 #3881]  INFO -- example-ubuntu: [0m[1maws_security_group.instance: Creation complete after 41s (ID: sg-8c6ec4fb)[0m[0m
+I, [2018-02-02T12:17:35.743351 #3881]  INFO -- example-ubuntu: [0m[1maws_instance.web_server: Creating...[0m
+I, [2018-02-02T12:17:35.743490 #3881]  INFO -- example-ubuntu:   ami:                               "" => "ami-33e4bc49"
+I, [2018-02-02T12:17:35.743683 #3881]  INFO -- example-ubuntu:   associate_public_ip_address:       "" => "<computed>"
+I, [2018-02-02T12:17:35.743743 #3881]  INFO -- example-ubuntu:   availability_zone:                 "" => "<computed>"
+I, [2018-02-02T12:17:35.743913 #3881]  INFO -- example-ubuntu:   ebs_block_device.#:                "" => "<computed>"
+I, [2018-02-02T12:17:35.744012 #3881]  INFO -- example-ubuntu:   ephemeral_block_device.#:          "" => "<computed>"
+I, [2018-02-02T12:17:35.744330 #3881]  INFO -- example-ubuntu:   instance_state:                    "" => "<computed>"
+I, [2018-02-02T12:17:35.744376 #3881]  INFO -- example-ubuntu:   instance_type:                     "" => "t2.micro"
+I, [2018-02-02T12:17:35.744415 #3881]  INFO -- example-ubuntu:   ipv6_address_count:                "" => "<computed>"
+I, [2018-02-02T12:17:35.744587 #3881]  INFO -- example-ubuntu:   ipv6_addresses.#:                  "" => "<computed>"
+I, [2018-02-02T12:17:35.744632 #3881]  INFO -- example-ubuntu:   key_name:                          "" => "JoseTest_KeyPair"
+I, [2018-02-02T12:17:35.744811 #3881]  INFO -- example-ubuntu:   network_interface.#:               "" => "<computed>"
+I, [2018-02-02T12:17:35.744952 #3881]  INFO -- example-ubuntu:   network_interface_id:              "" => "<computed>"
+I, [2018-02-02T12:17:35.744983 #3881]  INFO -- example-ubuntu:   placement_group:                   "" => "<computed>"
+I, [2018-02-02T12:17:35.745056 #3881]  INFO -- example-ubuntu:   primary_network_interface_id:      "" => "<computed>"
+I, [2018-02-02T12:17:35.745076 #3881]  INFO -- example-ubuntu:   private_dns:                       "" => "<computed>"
+I, [2018-02-02T12:17:35.745187 #3881]  INFO -- example-ubuntu:   private_ip:                        "" => "<computed>"
+I, [2018-02-02T12:17:35.745212 #3881]  INFO -- example-ubuntu:   public_dns:                        "" => "<computed>"
+I, [2018-02-02T12:17:35.745351 #3881]  INFO -- example-ubuntu:   public_ip:                         "" => "<computed>"
+I, [2018-02-02T12:17:35.745389 #3881]  INFO -- example-ubuntu:   root_block_device.#:               "" => "<computed>"
+I, [2018-02-02T12:17:35.745473 #3881]  INFO -- example-ubuntu:   security_groups.#:                 "" => "<computed>"
+I, [2018-02-02T12:17:35.745500 #3881]  INFO -- example-ubuntu:   source_dest_check:                 "" => "true"
+I, [2018-02-02T12:17:35.745677 #3881]  INFO -- example-ubuntu:   subnet_id:                         "" => "<computed>"
+I, [2018-02-02T12:17:35.745701 #3881]  INFO -- example-ubuntu:   tags.%:                            "" => "2"
+I, [2018-02-02T12:17:35.745716 #3881]  INFO -- example-ubuntu:   tags.Name:                         "" => "Web-Server"
+I, [2018-02-02T12:17:35.745778 #3881]  INFO -- example-ubuntu:   tags.name:                         "" => "myTag"
+I, [2018-02-02T12:17:35.745797 #3881]  INFO -- example-ubuntu:   tenancy:                           "" => "<computed>"
+I, [2018-02-02T12:17:35.745888 #3881]  INFO -- example-ubuntu:   user_data:                         "" => "bb327976d2fd6c3a3d67db8a3e9f01fc6a949478"
+I, [2018-02-02T12:17:35.746017 #3881]  INFO -- example-ubuntu:   volume_tags.%:                     "" => "<computed>"
+I, [2018-02-02T12:17:35.746090 #3881]  INFO -- example-ubuntu:   vpc_security_group_ids.#:          "" => "1"
+I, [2018-02-02T12:17:35.746144 #3881]  INFO -- example-ubuntu:   vpc_security_group_ids.3115263018: "" => "sg-8c6ec4fb"[0m
+I, [2018-02-02T12:17:45.743509 #3881]  INFO -- example-ubuntu: [0m[1maws_instance.web_server: Still creating... (10s elapsed)[0m[0m
+I, [2018-02-02T12:17:55.743554 #3881]  INFO -- example-ubuntu: [0m[1maws_instance.web_server: Still creating... (20s elapsed)[0m[0m
+I, [2018-02-02T12:18:05.743904 #3881]  INFO -- example-ubuntu: [0m[1maws_instance.web_server: Still creating... (30s elapsed)[0m[0m
+I, [2018-02-02T12:18:15.744610 #3881]  INFO -- example-ubuntu: [0m[1maws_instance.web_server: Still creating... (40s elapsed)[0m[0m
+I, [2018-02-02T12:18:25.744519 #3881]  INFO -- example-ubuntu: [0m[1maws_instance.web_server: Still creating... (50s elapsed)[0m[0m
+I, [2018-02-02T12:18:35.744375 #3881]  INFO -- example-ubuntu: [0m[1maws_instance.web_server: Still creating... (1m0s elapsed)[0m[0m
+I, [2018-02-02T12:18:45.744716 #3881]  INFO -- example-ubuntu: [0m[1maws_instance.web_server: Still creating... (1m10s elapsed)[0m[0m
+I, [2018-02-02T12:18:55.745396 #3881]  INFO -- example-ubuntu: [0m[1maws_instance.web_server: Still creating... (1m20s elapsed)[0m[0m
+I, [2018-02-02T12:18:57.003801 #3881]  INFO -- example-ubuntu: [0m[1maws_instance.web_server: Creation complete after 1m21s (ID: i-00f67fd2d458e667d)[0m[0m
+I, [2018-02-02T12:18:57.006777 #3881]  INFO -- example-ubuntu: [0m[1m[32m
+I, [2018-02-02T12:18:57.006934 #3881]  INFO -- example-ubuntu: Apply complete! Resources: 2 added, 0 changed, 0 destroyed.[0m
+I, [2018-02-02T12:18:57.007043 #3881]  INFO -- example-ubuntu: [0m[1m[32m
+I, [2018-02-02T12:18:57.007076 #3881]  INFO -- example-ubuntu: Outputs:
+I, [2018-02-02T12:18:57.007094 #3881]  INFO -- example-ubuntu: 
+I, [2018-02-02T12:18:57.007115 #3881]  INFO -- example-ubuntu: public_ip = 35.170.202.63
+I, [2018-02-02T12:18:57.007328 #3881]  INFO -- example-ubuntu: public_port = 8080[0m
+W, [2018-02-02T12:18:57.025555 #3881]  WARN -- example-ubuntu: Running command `terraform output -json`
+I, [2018-02-02T12:18:57.063819 #3881]  INFO -- example-ubuntu: {
+I, [2018-02-02T12:18:57.064057 #3881]  INFO -- example-ubuntu:     "public_ip": {
+I, [2018-02-02T12:18:57.064151 #3881]  INFO -- example-ubuntu:  "sensitive": false,
+I, [2018-02-02T12:18:57.064178 #3881]  INFO -- example-ubuntu:  "type": "string",
+I, [2018-02-02T12:18:57.064205 #3881]  INFO -- example-ubuntu:  "value": "35.170.202.63"
+I, [2018-02-02T12:18:57.064219 #3881]  INFO -- example-ubuntu:     },
+I, [2018-02-02T12:18:57.064230 #3881]  INFO -- example-ubuntu:     "public_port": {
+I, [2018-02-02T12:18:57.064244 #3881]  INFO -- example-ubuntu:  "sensitive": false,
+I, [2018-02-02T12:18:57.064266 #3881]  INFO -- example-ubuntu:  "type": "string",
+I, [2018-02-02T12:18:57.064280 #3881]  INFO -- example-ubuntu:  "value": "8080"
+I, [2018-02-02T12:18:57.064292 #3881]  INFO -- example-ubuntu:     }
+I, [2018-02-02T12:18:57.064303 #3881]  INFO -- example-ubuntu: }
+I, [2018-02-02T12:18:57.081326 #3881]  INFO -- example-ubuntu: Finished converging <example-ubuntu> (2m38.43s).
+I, [2018-02-02T12:18:57.081504 #3881]  INFO -- example-ubuntu: -----> Setting up <example-ubuntu>...
+I, [2018-02-02T12:18:57.083580 #3881]  INFO -- example-ubuntu: Finished setting up <example-ubuntu> (0m0.00s).
+I, [2018-02-02T12:18:57.083743 #3881]  INFO -- example-ubuntu: -----> Verifying <example-ubuntu>...
+I, [2018-02-02T12:18:57.084953 #3881]  INFO -- example-ubuntu: [Shell] Verify on instance example-ubuntu with state={:last_action=>"setup", :last_error=>nil, :kitchen_terraform_output=>{:public_ip=>{:sensitive=>false, :type=>"string", :value=>"35.170.202.63"}, :public_port=>{:sensitive=>false, :type=>"string", :value=>"8080"}}}
+I, [2018-02-02T12:18:57.085035 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:18:58.087166 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:18:59.089801 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:00.092446 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:01.095081 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:02.097934 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:03.098889 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:04.103001 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:05.105715 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:06.108364 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:07.110981 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:08.111653 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:09.116175 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:10.120227 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:11.121475 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:12.124114 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:13.126756 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:14.129347 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:15.130532 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:16.134689 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:17.138875 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:18.139056 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:19.142624 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:20.144527 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:21.146352 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:22.150661 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:23.151205 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:24.155777 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:25.158446 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:26.161099 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:27.163660 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:28.166311 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:29.169911 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:30.170090 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:31.174179 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:32.178422 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:33.182808 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:34.186667 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:35.187787 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:36.188283 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:37.190036 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:38.191821 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:39.192009 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:40.192736 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:41.193716 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:42.194101 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:43.196041 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:44.197802 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:45.200437 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:46.203136 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:47.207565 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:48.208381 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:49.211004 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:50.214846 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:51.217449 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:52.219377 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:53.219557 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:54.224124 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:55.228697 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:56.232644 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:57.233666 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:58.234717 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:19:59.238633 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:00.239968 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:01.242703 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:02.245316 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:03.249072 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:04.249376 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:05.253246 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:06.255876 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:07.259388 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:08.261887 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:09.263751 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:10.264820 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:11.268989 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:12.270814 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:13.274271 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:14.276930 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:15.280694 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:16.281018 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:17.285595 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:18.287562 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:19.288215 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:20.292694 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:21.295381 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:22.299640 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:23.302025 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:24.303233 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:25.308335 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:26.309372 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:27.312228 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:28.312573 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:29.316393 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:30.319134 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:31.322592 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:32.324259 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:33.327105 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:34.328079 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:35.328320 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:36.331932 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:37.334072 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:38.338222 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:39.342789 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:40.345493 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:41.345923 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:42.346260 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:43.346823 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:44.347815 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:45.350225 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:46.350688 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:47.353327 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:48.355892 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:49.358535 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:50.360612 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:51.363826 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:52.367526 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:53.369066 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:54.371756 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:55.374268 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:56.378437 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:57.379609 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:58.382166 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:20:59.383352 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:00.388328 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:01.388729 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:02.389288 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:03.392452 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:04.397242 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:05.400728 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:06.403400 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:07.405926 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:08.408638 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:09.412035 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:10.416035 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:11.416193 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:12.419240 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:13.421846 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:14.422941 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:15.427093 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:16.429746 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:17.434271 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:18.439234 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:19.439733 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:20.440292 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:21.440670 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:22.445621 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:23.446654 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:24.450834 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:25.453441 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:26.456075 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:27.459364 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:28.464899 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:29.466901 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:30.470442 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:31.473391 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:32.474360 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:33.474685 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:34.477149 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:35.479835 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:36.482497 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:37.485142 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:38.487652 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:39.490314 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:40.490584 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:41.495656 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:42.498231 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:43.500970 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:44.503543 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:45.506155 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:46.508862 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:47.512933 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:48.514125 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:49.516782 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:50.519819 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:51.520045 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:52.523803 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:53.528633 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:54.529709 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:55.532707 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:21:56.535199 #3881]  INFO -- example-ubuntu: .
+I, [2018-02-02T12:23:24.068481 #3881]  INFO -- example-ubuntu: Finished verifying <example-ubuntu> (4m26.98s).
+I, [2018-02-02T12:23:24.070627 #3881]  INFO -- example-ubuntu: -----> Destroying <example-ubuntu>...
+W, [2018-02-02T12:23:24.071550 #3881]  WARN -- example-ubuntu: Running command `terraform init -input=false -lock=true -lock-timeout=0s  -force-copy -backend=true  -get=true -get-plugins=true  -verify-plugins=true /Users/jose.choque/Documents/GitHub/terraform-training/basic.instance.ssh.good`
+I, [2018-02-02T12:23:24.198497 #3881]  INFO -- example-ubuntu: 
+I, [2018-02-02T12:23:24.198746 #3881]  INFO -- example-ubuntu: [0m[1mInitializing provider plugins...[0m
+I, [2018-02-02T12:23:24.497555 #3881]  INFO -- example-ubuntu: 
+I, [2018-02-02T12:23:24.497751 #3881]  INFO -- example-ubuntu: The following providers do not have any version constraints in configuration,
+I, [2018-02-02T12:23:24.497958 #3881]  INFO -- example-ubuntu: so the latest version was installed.
+I, [2018-02-02T12:23:24.498004 #3881]  INFO -- example-ubuntu: 
+I, [2018-02-02T12:23:24.498135 #3881]  INFO -- example-ubuntu: To prevent automatic upgrades to new major versions that may contain breaking
+I, [2018-02-02T12:23:24.498159 #3881]  INFO -- example-ubuntu: changes, it is recommended to add version = "..." constraints to the
+I, [2018-02-02T12:23:24.498182 #3881]  INFO -- example-ubuntu: corresponding provider blocks in configuration, with the constraint strings
+I, [2018-02-02T12:23:24.498199 #3881]  INFO -- example-ubuntu: suggested below.
+I, [2018-02-02T12:23:24.498223 #3881]  INFO -- example-ubuntu: 
+I, [2018-02-02T12:23:24.498237 #3881]  INFO -- example-ubuntu: * provider.aws: version = "~> 1.8"
+I, [2018-02-02T12:23:24.498251 #3881]  INFO -- example-ubuntu: 
+I, [2018-02-02T12:23:24.498269 #3881]  INFO -- example-ubuntu: [0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+W, [2018-02-02T12:23:24.512074 #3881]  WARN -- example-ubuntu: Running command `terraform workspace select kitchen-terraform-example-ubuntu`
+W, [2018-02-02T12:23:24.567000 #3881]  WARN -- example-ubuntu: Running command `terraform destroy -force -lock=true -lock-timeout=0s -input=false  -parallelism=10 -refresh=true   /Users/jose.choque/Documents/GitHub/terraform-training/basic.instance.ssh.good`
+I, [2018-02-02T12:23:43.011541 #3881]  INFO -- example-ubuntu: [0m[1maws_security_group.instance: Refreshing state... (ID: sg-8c6ec4fb)[0m
+I, [2018-02-02T12:23:48.662557 #3881]  INFO -- example-ubuntu: [0m[1maws_instance.web_server: Refreshing state... (ID: i-00f67fd2d458e667d)[0m
+I, [2018-02-02T12:24:46.386381 #3881]  INFO -- example-ubuntu: [0m[1maws_instance.web_server: Destroying... (ID: i-00f67fd2d458e667d)[0m[0m
+I, [2018-02-02T12:24:56.387597 #3881]  INFO -- example-ubuntu: [0m[1maws_instance.web_server: Still destroying... (ID: i-00f67fd2d458e667d, 10s elapsed)[0m[0m
+I, [2018-02-02T12:25:06.388358 #3881]  INFO -- example-ubuntu: [0m[1maws_instance.web_server: Still destroying... (ID: i-00f67fd2d458e667d, 20s elapsed)[0m[0m
+I, [2018-02-02T12:25:16.388385 #3881]  INFO -- example-ubuntu: [0m[1maws_instance.web_server: Still destroying... (ID: i-00f67fd2d458e667d, 30s elapsed)[0m[0m
+I, [2018-02-02T12:25:26.388131 #3881]  INFO -- example-ubuntu: [0m[1maws_instance.web_server: Still destroying... (ID: i-00f67fd2d458e667d, 40s elapsed)[0m[0m
+I, [2018-02-02T12:25:36.388389 #3881]  INFO -- example-ubuntu: [0m[1maws_instance.web_server: Still destroying... (ID: i-00f67fd2d458e667d, 50s elapsed)[0m[0m
+I, [2018-02-02T12:25:46.389136 #3881]  INFO -- example-ubuntu: [0m[1maws_instance.web_server: Still destroying... (ID: i-00f67fd2d458e667d, 1m0s elapsed)[0m[0m
+I, [2018-02-02T12:25:56.389817 #3881]  INFO -- example-ubuntu: [0m[1maws_instance.web_server: Still destroying... (ID: i-00f67fd2d458e667d, 1m10s elapsed)[0m[0m
+I, [2018-02-02T12:25:58.419511 #3881]  INFO -- example-ubuntu: [0m[1maws_instance.web_server: Destruction complete after 1m12s[0m[0m
+I, [2018-02-02T12:25:58.422752 #3881]  INFO -- example-ubuntu: [0m[1maws_security_group.instance: Destroying... (ID: sg-8c6ec4fb)[0m[0m
+I, [2018-02-02T12:26:08.423132 #3881]  INFO -- example-ubuntu: [0m[1maws_security_group.instance: Still destroying... (ID: sg-8c6ec4fb, 10s elapsed)[0m[0m
+I, [2018-02-02T12:26:09.876510 #3881]  INFO -- example-ubuntu: [0m[1maws_security_group.instance: Destruction complete after 12s[0m[0m
+I, [2018-02-02T12:26:09.878788 #3881]  INFO -- example-ubuntu: [0m[1m[32m
+I, [2018-02-02T12:26:09.878861 #3881]  INFO -- example-ubuntu: Destroy complete! Resources: 2 destroyed.[0m
+W, [2018-02-02T12:26:09.897121 #3881]  WARN -- example-ubuntu: Running command `terraform workspace select default`
+I, [2018-02-02T12:26:09.937321 #3881]  INFO -- example-ubuntu: [0m[32mSwitched to workspace "default".[0m
+W, [2018-02-02T12:26:09.952066 #3881]  WARN -- example-ubuntu: Running command `terraform workspace delete kitchen-terraform-example-ubuntu`
+I, [2018-02-02T12:26:09.993382 #3881]  INFO -- example-ubuntu: [0m[32mDeleted workspace "kitchen-terraform-example-ubuntu"![0m
+I, [2018-02-02T12:26:10.009209 #3881]  INFO -- example-ubuntu: Finished destroying <example-ubuntu> (2m45.94s).
+I, [2018-02-02T12:26:10.009820 #3881]  INFO -- example-ubuntu: Finished testing <example-ubuntu> (11m27.73s).

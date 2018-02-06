@@ -1,7 +1,7 @@
 provider "aws" {
     region = "us-east-1"
-    access_key = "${var.access_key}"
-    secret_key = "${var.secret_key}"
+    #access_key = "${var.access_key}"
+    #secret_key = "${var.secret_key}"
 }
 
 #ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-20180110 (ami-33e4bc49)

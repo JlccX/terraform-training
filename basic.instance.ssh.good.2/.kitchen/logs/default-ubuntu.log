@@ -1,0 +1,389 @@
+I, [2018-02-06T14:53:06.648083 #4654]  INFO -- default-ubuntu: -----> Cleaning up any prior instances of <default-ubuntu>
+I, [2018-02-06T14:53:06.649240 #4654]  INFO -- default-ubuntu: -----> Destroying <default-ubuntu>...
+W, [2018-02-06T14:53:06.650114 #4654]  WARN -- default-ubuntu: Running command `terraform init -input=false -lock=true -lock-timeout=0s  -force-copy -backend=true  -get=true -get-plugins=true  -verify-plugins=true /Users/jose.choque/Documents/GitHub/terraform-training/basic.instance.ssh.good.2`
+I, [2018-02-06T14:53:06.694458 #4654]  INFO -- default-ubuntu: 
+I, [2018-02-06T14:53:06.694586 #4654]  INFO -- default-ubuntu: [0m[1mInitializing provider plugins...[0m
+I, [2018-02-06T14:53:06.969045 #4654]  INFO -- default-ubuntu: 
+I, [2018-02-06T14:53:06.969196 #4654]  INFO -- default-ubuntu: The following providers do not have any version constraints in configuration,
+I, [2018-02-06T14:53:06.969283 #4654]  INFO -- default-ubuntu: so the latest version was installed.
+I, [2018-02-06T14:53:06.969320 #4654]  INFO -- default-ubuntu: 
+I, [2018-02-06T14:53:06.969415 #4654]  INFO -- default-ubuntu: To prevent automatic upgrades to new major versions that may contain breaking
+I, [2018-02-06T14:53:06.969449 #4654]  INFO -- default-ubuntu: changes, it is recommended to add version = "..." constraints to the
+I, [2018-02-06T14:53:06.969556 #4654]  INFO -- default-ubuntu: corresponding provider blocks in configuration, with the constraint strings
+I, [2018-02-06T14:53:06.969681 #4654]  INFO -- default-ubuntu: suggested below.
+I, [2018-02-06T14:53:06.969709 #4654]  INFO -- default-ubuntu: 
+I, [2018-02-06T14:53:06.969730 #4654]  INFO -- default-ubuntu: * provider.aws: version = "~> 1.8"
+I, [2018-02-06T14:53:06.969755 #4654]  INFO -- default-ubuntu: 
+I, [2018-02-06T14:53:06.969943 #4654]  INFO -- default-ubuntu: [0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+W, [2018-02-06T14:53:06.984208 #4654]  WARN -- default-ubuntu: Running command `terraform workspace select kitchen-terraform-default-ubuntu`
+W, [2018-02-06T14:53:07.037425 #4654]  WARN -- default-ubuntu: Running command `terraform destroy -force -lock=true -lock-timeout=0s -input=false  -parallelism=10 -refresh=true   /Users/jose.choque/Documents/GitHub/terraform-training/basic.instance.ssh.good.2`
+I, [2018-02-06T14:53:25.353808 #4654]  INFO -- default-ubuntu: [0m[1maws_security_group.instance: Refreshing state... (ID: sg-26b13c51)[0m
+I, [2018-02-06T14:53:31.021446 #4654]  INFO -- default-ubuntu: [0m[1maws_instance.web_server: Refreshing state... (ID: i-01c64ceb6f2da8a62)[0m
+I, [2018-02-06T14:54:28.470130 #4654]  INFO -- default-ubuntu: [0m[1maws_instance.web_server: Destroying... (ID: i-01c64ceb6f2da8a62)[0m[0m
+I, [2018-02-06T14:54:38.470329 #4654]  INFO -- default-ubuntu: [0m[1maws_instance.web_server: Still destroying... (ID: i-01c64ceb6f2da8a62, 10s elapsed)[0m[0m
+I, [2018-02-06T14:54:48.471082 #4654]  INFO -- default-ubuntu: [0m[1maws_instance.web_server: Still destroying... (ID: i-01c64ceb6f2da8a62, 20s elapsed)[0m[0m
+I, [2018-02-06T14:54:58.471318 #4654]  INFO -- default-ubuntu: [0m[1maws_instance.web_server: Still destroying... (ID: i-01c64ceb6f2da8a62, 30s elapsed)[0m[0m
+I, [2018-02-06T14:55:08.471417 #4654]  INFO -- default-ubuntu: [0m[1maws_instance.web_server: Still destroying... (ID: i-01c64ceb6f2da8a62, 40s elapsed)[0m[0m
+I, [2018-02-06T14:55:18.471562 #4654]  INFO -- default-ubuntu: [0m[1maws_instance.web_server: Still destroying... (ID: i-01c64ceb6f2da8a62, 50s elapsed)[0m[0m
+I, [2018-02-06T14:55:23.920564 #4654]  INFO -- default-ubuntu: [0m[1maws_instance.web_server: Destruction complete after 56s[0m[0m
+I, [2018-02-06T14:55:23.923632 #4654]  INFO -- default-ubuntu: [0m[1maws_security_group.instance: Destroying... (ID: sg-26b13c51)[0m[0m
+I, [2018-02-06T14:55:33.924376 #4654]  INFO -- default-ubuntu: [0m[1maws_security_group.instance: Still destroying... (ID: sg-26b13c51, 10s elapsed)[0m[0m
+I, [2018-02-06T14:55:35.489777 #4654]  INFO -- default-ubuntu: [0m[1maws_security_group.instance: Destruction complete after 11s[0m[0m
+I, [2018-02-06T14:55:35.491254 #4654]  INFO -- default-ubuntu: [0m[1m[32m
+I, [2018-02-06T14:55:35.491345 #4654]  INFO -- default-ubuntu: Destroy complete! Resources: 2 destroyed.[0m
+W, [2018-02-06T14:55:35.511778 #4654]  WARN -- default-ubuntu: Running command `terraform workspace select default`
+I, [2018-02-06T14:55:35.551932 #4654]  INFO -- default-ubuntu: [0m[32mSwitched to workspace "default".[0m
+W, [2018-02-06T14:55:35.566552 #4654]  WARN -- default-ubuntu: Running command `terraform workspace delete kitchen-terraform-default-ubuntu`
+I, [2018-02-06T14:55:35.610865 #4654]  INFO -- default-ubuntu: [0m[32mDeleted workspace "kitchen-terraform-default-ubuntu"![0m
+I, [2018-02-06T14:55:35.629422 #4654]  INFO -- default-ubuntu: Finished destroying <default-ubuntu> (2m28.98s).
+I, [2018-02-06T14:55:35.629733 #4654]  INFO -- default-ubuntu: -----> Testing <default-ubuntu>
+I, [2018-02-06T14:55:35.629899 #4654]  INFO -- default-ubuntu: -----> Creating <default-ubuntu>...
+W, [2018-02-06T14:55:35.630055 #4654]  WARN -- default-ubuntu: Running command `terraform init -input=false -lock=true -lock-timeout=0s  -upgrade -force-copy -backend=true  -get=true -get-plugins=true  -verify-plugins=true /Users/jose.choque/Documents/GitHub/terraform-training/basic.instance.ssh.good.2`
+I, [2018-02-06T14:55:35.672703 #4654]  INFO -- default-ubuntu: 
+I, [2018-02-06T14:55:35.672823 #4654]  INFO -- default-ubuntu: [0m[1mInitializing provider plugins...[0m
+I, [2018-02-06T14:55:35.672856 #4654]  INFO -- default-ubuntu: - Checking for available provider plugins on https://releases.hashicorp.com...
+I, [2018-02-06T14:55:41.763581 #4654]  INFO -- default-ubuntu: - Downloading plugin for provider "aws" (1.8.0)...
+I, [2018-02-06T14:56:45.498301 #4654]  INFO -- default-ubuntu: 
+I, [2018-02-06T14:56:45.498426 #4654]  INFO -- default-ubuntu: The following providers do not have any version constraints in configuration,
+I, [2018-02-06T14:56:45.498471 #4654]  INFO -- default-ubuntu: so the latest version was installed.
+I, [2018-02-06T14:56:45.498607 #4654]  INFO -- default-ubuntu: 
+I, [2018-02-06T14:56:45.498793 #4654]  INFO -- default-ubuntu: To prevent automatic upgrades to new major versions that may contain breaking
+I, [2018-02-06T14:56:45.498853 #4654]  INFO -- default-ubuntu: changes, it is recommended to add version = "..." constraints to the
+I, [2018-02-06T14:56:45.498998 #4654]  INFO -- default-ubuntu: corresponding provider blocks in configuration, with the constraint strings
+I, [2018-02-06T14:56:45.499032 #4654]  INFO -- default-ubuntu: suggested below.
+I, [2018-02-06T14:56:45.499080 #4654]  INFO -- default-ubuntu: 
+I, [2018-02-06T14:56:45.499158 #4654]  INFO -- default-ubuntu: * provider.aws: version = "~> 1.8"
+I, [2018-02-06T14:56:45.499222 #4654]  INFO -- default-ubuntu: 
+I, [2018-02-06T14:56:45.499254 #4654]  INFO -- default-ubuntu: [0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+W, [2018-02-06T14:56:45.515221 #4654]  WARN -- default-ubuntu: Running command `terraform workspace select kitchen-terraform-default-ubuntu`
+I, [2018-02-06T14:56:45.557542 #4654]  INFO -- default-ubuntu: [31m
+I, [2018-02-06T14:56:45.557650 #4654]  INFO -- default-ubuntu: Workspace "kitchen-terraform-default-ubuntu" doesn't exist.
+I, [2018-02-06T14:56:45.557680 #4654]  INFO -- default-ubuntu: 
+I, [2018-02-06T14:56:45.557750 #4654]  INFO -- default-ubuntu: You can create this workspace with the "new" subcommand.[0m[0m
+W, [2018-02-06T14:56:45.571900 #4654]  WARN -- default-ubuntu: Running command `terraform workspace new kitchen-terraform-default-ubuntu`
+I, [2018-02-06T14:56:45.613186 #4654]  INFO -- default-ubuntu: [0m[32m[1mCreated and switched to workspace "kitchen-terraform-default-ubuntu"![0m[32m
+I, [2018-02-06T14:56:45.613296 #4654]  INFO -- default-ubuntu: 
+I, [2018-02-06T14:56:45.613455 #4654]  INFO -- default-ubuntu: You're now on a new, empty workspace. Workspaces isolate their state,
+I, [2018-02-06T14:56:45.613513 #4654]  INFO -- default-ubuntu: so if you run "terraform plan" Terraform will not see any existing state
+I, [2018-02-06T14:56:45.613568 #4654]  INFO -- default-ubuntu: for this configuration.[0m
+I, [2018-02-06T14:56:45.630956 #4654]  INFO -- default-ubuntu: Finished creating <default-ubuntu> (1m10.00s).
+I, [2018-02-06T14:56:45.631322 #4654]  INFO -- default-ubuntu: -----> Converging <default-ubuntu>...
+W, [2018-02-06T14:56:45.632976 #4654]  WARN -- default-ubuntu: Running command `terraform workspace select kitchen-terraform-default-ubuntu`
+W, [2018-02-06T14:56:45.688651 #4654]  WARN -- default-ubuntu: Running command `terraform get -update /Users/jose.choque/Documents/GitHub/terraform-training/basic.instance.ssh.good.2`
+W, [2018-02-06T14:56:45.744455 #4654]  WARN -- default-ubuntu: Running command `terraform validate -check-variables=true    /Users/jose.choque/Documents/GitHub/terraform-training/basic.instance.ssh.good.2`
+W, [2018-02-06T14:56:46.147692 #4654]  WARN -- default-ubuntu: Running command `terraform apply -lock=true -lock-timeout=0s -input=false -auto-approve=true  -parallelism=10 -refresh=true   /Users/jose.choque/Documents/GitHub/terraform-training/basic.instance.ssh.good.2`
+I, [2018-02-06T14:57:21.792591 #4654]  INFO -- default-ubuntu: [0m[1maws_security_group.instance: Creating...[0m
+I, [2018-02-06T14:57:21.792864 #4654]  INFO -- default-ubuntu:   description:                           "" => "Managed by Terraform"
+I, [2018-02-06T14:57:21.792913 #4654]  INFO -- default-ubuntu:   egress.#:                              "" => "<computed>"
+I, [2018-02-06T14:57:21.792948 #4654]  INFO -- default-ubuntu:   ingress.#:                             "" => "2"
+I, [2018-02-06T14:57:21.792967 #4654]  INFO -- default-ubuntu:   ingress.2541437006.cidr_blocks.#:      "" => "1"
+I, [2018-02-06T14:57:21.792997 #4654]  INFO -- default-ubuntu:   ingress.2541437006.cidr_blocks.0:      "" => "0.0.0.0/0"
+I, [2018-02-06T14:57:21.793281 #4654]  INFO -- default-ubuntu:   ingress.2541437006.description:        "" => ""
+I, [2018-02-06T14:57:21.793348 #4654]  INFO -- default-ubuntu:   ingress.2541437006.from_port:          "" => "22"
+I, [2018-02-06T14:57:21.793385 #4654]  INFO -- default-ubuntu:   ingress.2541437006.ipv6_cidr_blocks.#: "" => "0"
+I, [2018-02-06T14:57:21.793525 #4654]  INFO -- default-ubuntu:   ingress.2541437006.protocol:           "" => "tcp"
+I, [2018-02-06T14:57:21.793556 #4654]  INFO -- default-ubuntu:   ingress.2541437006.security_groups.#:  "" => "0"
+I, [2018-02-06T14:57:21.793980 #4654]  INFO -- default-ubuntu:   ingress.2541437006.self:               "" => "false"
+I, [2018-02-06T14:57:21.794003 #4654]  INFO -- default-ubuntu:   ingress.2541437006.to_port:            "" => "22"
+I, [2018-02-06T14:57:21.794125 #4654]  INFO -- default-ubuntu:   ingress.516175195.cidr_blocks.#:       "" => "1"
+I, [2018-02-06T14:57:21.794151 #4654]  INFO -- default-ubuntu:   ingress.516175195.cidr_blocks.0:       "" => "0.0.0.0/0"
+I, [2018-02-06T14:57:21.794205 #4654]  INFO -- default-ubuntu:   ingress.516175195.description:         "" => ""
+I, [2018-02-06T14:57:21.794228 #4654]  INFO -- default-ubuntu:   ingress.516175195.from_port:           "" => "8080"
+I, [2018-02-06T14:57:21.794250 #4654]  INFO -- default-ubuntu:   ingress.516175195.ipv6_cidr_blocks.#:  "" => "0"
+I, [2018-02-06T14:57:21.794266 #4654]  INFO -- default-ubuntu:   ingress.516175195.protocol:            "" => "tcp"
+I, [2018-02-06T14:57:21.794286 #4654]  INFO -- default-ubuntu:   ingress.516175195.security_groups.#:   "" => "0"
+I, [2018-02-06T14:57:21.794321 #4654]  INFO -- default-ubuntu:   ingress.516175195.self:                "" => "false"
+I, [2018-02-06T14:57:21.794337 #4654]  INFO -- default-ubuntu:   ingress.516175195.to_port:             "" => "8080"
+I, [2018-02-06T14:57:21.795008 #4654]  INFO -- default-ubuntu:   name:                                  "" => "terraform-web-server-security-group"
+I, [2018-02-06T14:57:21.795249 #4654]  INFO -- default-ubuntu:   owner_id:                              "" => "<computed>"
+I, [2018-02-06T14:57:21.795360 #4654]  INFO -- default-ubuntu:   revoke_rules_on_delete:                "" => "false"
+I, [2018-02-06T14:57:21.795430 #4654]  INFO -- default-ubuntu:   vpc_id:                                "" => "<computed>"[0m
+I, [2018-02-06T14:57:31.792965 #4654]  INFO -- default-ubuntu: [0m[1maws_security_group.instance: Still creating... (10s elapsed)[0m[0m
+I, [2018-02-06T14:57:41.793300 #4654]  INFO -- default-ubuntu: [0m[1maws_security_group.instance: Still creating... (20s elapsed)[0m[0m
+I, [2018-02-06T14:57:51.794016 #4654]  INFO -- default-ubuntu: [0m[1maws_security_group.instance: Still creating... (30s elapsed)[0m[0m
+I, [2018-02-06T14:58:01.794274 #4654]  INFO -- default-ubuntu: [0m[1maws_security_group.instance: Still creating... (40s elapsed)[0m[0m
+I, [2018-02-06T14:58:02.453625 #4654]  INFO -- default-ubuntu: [0m[1maws_security_group.instance: Creation complete after 40s (ID: sg-9840cdef)[0m[0m
+I, [2018-02-06T14:58:02.457243 #4654]  INFO -- default-ubuntu: [0m[1maws_instance.web_server: Creating...[0m
+I, [2018-02-06T14:58:02.457348 #4654]  INFO -- default-ubuntu:   ami:                               "" => "ami-33e4bc49"
+I, [2018-02-06T14:58:02.457374 #4654]  INFO -- default-ubuntu:   associate_public_ip_address:       "" => "<computed>"
+I, [2018-02-06T14:58:02.457454 #4654]  INFO -- default-ubuntu:   availability_zone:                 "" => "<computed>"
+I, [2018-02-06T14:58:02.457544 #4654]  INFO -- default-ubuntu:   ebs_block_device.#:                "" => "<computed>"
+I, [2018-02-06T14:58:02.457620 #4654]  INFO -- default-ubuntu:   ephemeral_block_device.#:          "" => "<computed>"
+I, [2018-02-06T14:58:02.457693 #4654]  INFO -- default-ubuntu:   instance_state:                    "" => "<computed>"
+I, [2018-02-06T14:58:02.457719 #4654]  INFO -- default-ubuntu:   instance_type:                     "" => "t2.micro"
+I, [2018-02-06T14:58:02.457783 #4654]  INFO -- default-ubuntu:   ipv6_address_count:                "" => "<computed>"
+I, [2018-02-06T14:58:02.458011 #4654]  INFO -- default-ubuntu:   ipv6_addresses.#:                  "" => "<computed>"
+I, [2018-02-06T14:58:02.458052 #4654]  INFO -- default-ubuntu:   key_name:                          "" => "JoseTest_KeyPair"
+I, [2018-02-06T14:58:02.458147 #4654]  INFO -- default-ubuntu:   network_interface.#:               "" => "<computed>"
+I, [2018-02-06T14:58:02.458178 #4654]  INFO -- default-ubuntu:   network_interface_id:              "" => "<computed>"
+I, [2018-02-06T14:58:02.458399 #4654]  INFO -- default-ubuntu:   placement_group:                   "" => "<computed>"
+I, [2018-02-06T14:58:02.458439 #4654]  INFO -- default-ubuntu:   primary_network_interface_id:      "" => "<computed>"
+I, [2018-02-06T14:58:02.458476 #4654]  INFO -- default-ubuntu:   private_dns:                       "" => "<computed>"
+I, [2018-02-06T14:58:02.458582 #4654]  INFO -- default-ubuntu:   private_ip:                        "" => "<computed>"
+I, [2018-02-06T14:58:02.458613 #4654]  INFO -- default-ubuntu:   public_dns:                        "" => "<computed>"
+I, [2018-02-06T14:58:02.458640 #4654]  INFO -- default-ubuntu:   public_ip:                         "" => "<computed>"
+I, [2018-02-06T14:58:02.458741 #4654]  INFO -- default-ubuntu:   root_block_device.#:               "" => "<computed>"
+I, [2018-02-06T14:58:02.458769 #4654]  INFO -- default-ubuntu:   security_groups.#:                 "" => "<computed>"
+I, [2018-02-06T14:58:02.458906 #4654]  INFO -- default-ubuntu:   source_dest_check:                 "" => "true"
+I, [2018-02-06T14:58:02.458982 #4654]  INFO -- default-ubuntu:   subnet_id:                         "" => "<computed>"
+I, [2018-02-06T14:58:02.459005 #4654]  INFO -- default-ubuntu:   tags.%:                            "" => "2"
+I, [2018-02-06T14:58:02.459081 #4654]  INFO -- default-ubuntu:   tags.Name:                         "" => "Web-Server"
+I, [2018-02-06T14:58:02.459156 #4654]  INFO -- default-ubuntu:   tags.name:                         "" => "myTag"
+I, [2018-02-06T14:58:02.459244 #4654]  INFO -- default-ubuntu:   tenancy:                           "" => "<computed>"
+I, [2018-02-06T14:58:02.459341 #4654]  INFO -- default-ubuntu:   user_data:                         "" => "bb327976d2fd6c3a3d67db8a3e9f01fc6a949478"
+I, [2018-02-06T14:58:02.459445 #4654]  INFO -- default-ubuntu:   volume_tags.%:                     "" => "<computed>"
+I, [2018-02-06T14:58:02.459537 #4654]  INFO -- default-ubuntu:   vpc_security_group_ids.#:          "" => "1"
+I, [2018-02-06T14:58:02.459604 #4654]  INFO -- default-ubuntu:   vpc_security_group_ids.2836447523: "" => "sg-9840cdef"[0m
+I, [2018-02-06T14:58:12.457344 #4654]  INFO -- default-ubuntu: [0m[1maws_instance.web_server: Still creating... (10s elapsed)[0m[0m
+I, [2018-02-06T14:58:22.457351 #4654]  INFO -- default-ubuntu: [0m[1maws_instance.web_server: Still creating... (20s elapsed)[0m[0m
+I, [2018-02-06T14:58:32.457860 #4654]  INFO -- default-ubuntu: [0m[1maws_instance.web_server: Still creating... (30s elapsed)[0m[0m
+I, [2018-02-06T14:58:42.458441 #4654]  INFO -- default-ubuntu: [0m[1maws_instance.web_server: Still creating... (40s elapsed)[0m[0m
+I, [2018-02-06T14:58:52.458169 #4654]  INFO -- default-ubuntu: [0m[1maws_instance.web_server: Still creating... (50s elapsed)[0m[0m
+I, [2018-02-06T14:59:02.458076 #4654]  INFO -- default-ubuntu: [0m[1maws_instance.web_server: Still creating... (1m0s elapsed)[0m[0m
+I, [2018-02-06T14:59:12.458365 #4654]  INFO -- default-ubuntu: [0m[1maws_instance.web_server: Still creating... (1m10s elapsed)[0m[0m
+I, [2018-02-06T14:59:22.459181 #4654]  INFO -- default-ubuntu: [0m[1maws_instance.web_server: Still creating... (1m20s elapsed)[0m[0m
+I, [2018-02-06T14:59:23.830995 #4654]  INFO -- default-ubuntu: [0m[1maws_instance.web_server: Creation complete after 1m22s (ID: i-04a2ef3c876c5c0ba)[0m[0m
+I, [2018-02-06T14:59:23.833979 #4654]  INFO -- default-ubuntu: [0m[1m[32m
+I, [2018-02-06T14:59:23.834065 #4654]  INFO -- default-ubuntu: Apply complete! Resources: 2 added, 0 changed, 0 destroyed.[0m
+I, [2018-02-06T14:59:23.834340 #4654]  INFO -- default-ubuntu: [0m[1m[32m
+I, [2018-02-06T14:59:23.834388 #4654]  INFO -- default-ubuntu: Outputs:
+I, [2018-02-06T14:59:23.834423 #4654]  INFO -- default-ubuntu: 
+I, [2018-02-06T14:59:23.834452 #4654]  INFO -- default-ubuntu: public_ip = 52.23.188.155
+I, [2018-02-06T14:59:23.834569 #4654]  INFO -- default-ubuntu: public_port = 8080[0m
+W, [2018-02-06T14:59:23.853339 #4654]  WARN -- default-ubuntu: Running command `terraform output -json`
+I, [2018-02-06T14:59:23.896799 #4654]  INFO -- default-ubuntu: {
+I, [2018-02-06T14:59:23.896884 #4654]  INFO -- default-ubuntu:     "public_ip": {
+I, [2018-02-06T14:59:23.896976 #4654]  INFO -- default-ubuntu:  "sensitive": false,
+I, [2018-02-06T14:59:23.897008 #4654]  INFO -- default-ubuntu:  "type": "string",
+I, [2018-02-06T14:59:23.897038 #4654]  INFO -- default-ubuntu:  "value": "52.23.188.155"
+I, [2018-02-06T14:59:23.897057 #4654]  INFO -- default-ubuntu:     },
+I, [2018-02-06T14:59:23.897073 #4654]  INFO -- default-ubuntu:     "public_port": {
+I, [2018-02-06T14:59:23.897095 #4654]  INFO -- default-ubuntu:  "sensitive": false,
+I, [2018-02-06T14:59:23.897117 #4654]  INFO -- default-ubuntu:  "type": "string",
+I, [2018-02-06T14:59:23.897141 #4654]  INFO -- default-ubuntu:  "value": "8080"
+I, [2018-02-06T14:59:23.897228 #4654]  INFO -- default-ubuntu:     }
+I, [2018-02-06T14:59:23.897241 #4654]  INFO -- default-ubuntu: }
+I, [2018-02-06T14:59:23.912123 #4654]  INFO -- default-ubuntu: Finished converging <default-ubuntu> (2m38.28s).
+I, [2018-02-06T14:59:23.912317 #4654]  INFO -- default-ubuntu: -----> Setting up <default-ubuntu>...
+I, [2018-02-06T14:59:23.914576 #4654]  INFO -- default-ubuntu: Finished setting up <default-ubuntu> (0m0.00s).
+I, [2018-02-06T14:59:23.914724 #4654]  INFO -- default-ubuntu: -----> Verifying <default-ubuntu>...
+I, [2018-02-06T14:59:23.915885 #4654]  INFO -- default-ubuntu: [Shell] Verify on instance default-ubuntu with state={:last_action=>"setup", :last_error=>nil, :kitchen_terraform_output=>{:public_ip=>{:sensitive=>false, :type=>"string", :value=>"52.23.188.155"}, :public_port=>{:sensitive=>false, :type=>"string", :value=>"8080"}}}
+I, [2018-02-06T14:59:23.915956 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T14:59:24.920225 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T14:59:25.921682 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T14:59:26.922760 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T14:59:27.924780 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T14:59:28.924920 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T14:59:29.927410 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T14:59:30.930980 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T14:59:31.932679 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T14:59:32.935361 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T14:59:33.938371 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T14:59:34.940634 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T14:59:35.943255 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T14:59:36.945865 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T14:59:37.948526 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T14:59:38.951379 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T14:59:39.953818 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T14:59:40.956427 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T14:59:41.959921 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T14:59:42.960283 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T14:59:43.964391 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T14:59:44.968175 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T14:59:45.970480 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T14:59:46.972235 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T14:59:47.974913 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T14:59:48.977987 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T14:59:49.980170 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T14:59:50.982770 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T14:59:51.987939 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T14:59:52.988942 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T14:59:53.990871 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T14:59:54.994890 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T14:59:55.998123 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T14:59:57.000268 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T14:59:58.004258 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T14:59:59.005816 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:00.008709 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:01.009236 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:02.011778 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:03.014481 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:04.019027 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:05.021607 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:06.022293 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:07.027401 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:08.027674 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:09.030267 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:10.032882 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:11.037336 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:12.038283 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:13.041406 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:14.043386 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:15.046069 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:16.048640 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:17.051316 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:18.055628 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:19.059933 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:20.061207 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:21.061853 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:22.064566 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:23.068455 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:24.069052 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:25.073978 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:26.075225 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:27.077718 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:28.081898 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:29.085406 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:30.089850 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:31.091370 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:32.091614 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:33.092020 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:34.096164 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:35.098826 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:36.099020 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:37.104142 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:38.108550 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:39.111611 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:40.111998 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:41.114631 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:42.117884 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:43.119874 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:44.124580 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:45.125194 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:46.127828 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:47.130427 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:48.133549 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:49.135734 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:50.140269 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:51.140946 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:52.143653 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:53.146245 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:54.148888 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:55.153065 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:56.157724 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:57.158019 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:58.159473 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:00:59.162090 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:00.167365 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:01.172308 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:02.173888 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:03.176533 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:04.176757 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:05.176934 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:06.181662 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:07.183168 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:08.183685 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:09.188526 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:10.191074 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:11.193896 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:12.196949 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:13.202136 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:14.205977 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:15.207770 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:16.208290 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:17.211468 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:18.212147 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:19.216729 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:20.220319 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:21.223295 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:22.223722 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:23.225328 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:24.229855 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:25.230645 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:26.231131 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:27.235864 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:28.238584 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:29.241158 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:30.243792 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:31.246491 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:32.246999 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:33.251694 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:34.255916 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:35.256962 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:36.257282 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:37.262253 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:38.266302 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:39.267750 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:40.271708 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:41.272825 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:42.277866 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:43.278091 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:44.281461 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:45.282130 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:46.284727 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:47.287374 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:48.290060 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:49.292674 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:50.295340 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:51.300409 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:52.300578 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:53.305777 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:54.308328 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:55.308588 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:56.311250 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:57.315631 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:58.316369 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:01:59.318974 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:02:00.321705 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:02:01.326050 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:02:02.327014 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:02:03.329571 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:02:04.332264 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:02:05.336417 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:02:06.338805 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:02:07.340153 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:02:08.342841 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:02:09.345399 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:02:10.348053 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:02:11.350582 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:02:12.354761 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:02:13.355954 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:02:14.356668 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:02:15.361222 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:02:16.365058 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:02:17.366545 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:02:18.367597 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:02:19.371661 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:02:20.374308 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:02:21.377051 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:02:22.379673 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:02:23.384674 #4654]  INFO -- default-ubuntu: .
+I, [2018-02-06T15:03:50.344166 #4654]  INFO -- default-ubuntu: Finished verifying <default-ubuntu> (4m26.43s).
+I, [2018-02-06T15:03:50.345417 #4654]  INFO -- default-ubuntu: -----> Destroying <default-ubuntu>...
+W, [2018-02-06T15:03:50.346364 #4654]  WARN -- default-ubuntu: Running command `terraform init -input=false -lock=true -lock-timeout=0s  -force-copy -backend=true  -get=true -get-plugins=true  -verify-plugins=true /Users/jose.choque/Documents/GitHub/terraform-training/basic.instance.ssh.good.2`
+I, [2018-02-06T15:03:50.390355 #4654]  INFO -- default-ubuntu: 
+I, [2018-02-06T15:03:50.390494 #4654]  INFO -- default-ubuntu: [0m[1mInitializing provider plugins...[0m
+I, [2018-02-06T15:03:50.669273 #4654]  INFO -- default-ubuntu: 
+I, [2018-02-06T15:03:50.669494 #4654]  INFO -- default-ubuntu: The following providers do not have any version constraints in configuration,
+I, [2018-02-06T15:03:50.669535 #4654]  INFO -- default-ubuntu: so the latest version was installed.
+I, [2018-02-06T15:03:50.669577 #4654]  INFO -- default-ubuntu: 
+I, [2018-02-06T15:03:50.669599 #4654]  INFO -- default-ubuntu: To prevent automatic upgrades to new major versions that may contain breaking
+I, [2018-02-06T15:03:50.669687 #4654]  INFO -- default-ubuntu: changes, it is recommended to add version = "..." constraints to the
+I, [2018-02-06T15:03:50.669707 #4654]  INFO -- default-ubuntu: corresponding provider blocks in configuration, with the constraint strings
+I, [2018-02-06T15:03:50.669722 #4654]  INFO -- default-ubuntu: suggested below.
+I, [2018-02-06T15:03:50.669812 #4654]  INFO -- default-ubuntu: 
+I, [2018-02-06T15:03:50.669838 #4654]  INFO -- default-ubuntu: * provider.aws: version = "~> 1.8"
+I, [2018-02-06T15:03:50.669857 #4654]  INFO -- default-ubuntu: 
+I, [2018-02-06T15:03:50.670138 #4654]  INFO -- default-ubuntu: [0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+W, [2018-02-06T15:03:50.686425 #4654]  WARN -- default-ubuntu: Running command `terraform workspace select kitchen-terraform-default-ubuntu`
+W, [2018-02-06T15:03:50.741358 #4654]  WARN -- default-ubuntu: Running command `terraform destroy -force -lock=true -lock-timeout=0s -input=false  -parallelism=10 -refresh=true   /Users/jose.choque/Documents/GitHub/terraform-training/basic.instance.ssh.good.2`
+I, [2018-02-06T15:04:09.212317 #4654]  INFO -- default-ubuntu: [0m[1maws_security_group.instance: Refreshing state... (ID: sg-9840cdef)[0m
+I, [2018-02-06T15:04:14.876859 #4654]  INFO -- default-ubuntu: [0m[1maws_instance.web_server: Refreshing state... (ID: i-04a2ef3c876c5c0ba)[0m
+I, [2018-02-06T15:05:22.670060 #4654]  INFO -- default-ubuntu: [0m[1maws_instance.web_server: Destroying... (ID: i-04a2ef3c876c5c0ba)[0m[0m
+I, [2018-02-06T15:05:32.670067 #4654]  INFO -- default-ubuntu: [0m[1maws_instance.web_server: Still destroying... (ID: i-04a2ef3c876c5c0ba, 10s elapsed)[0m[0m
+I, [2018-02-06T15:05:42.670094 #4654]  INFO -- default-ubuntu: [0m[1maws_instance.web_server: Still destroying... (ID: i-04a2ef3c876c5c0ba, 20s elapsed)[0m[0m
+I, [2018-02-06T15:05:52.670592 #4654]  INFO -- default-ubuntu: [0m[1maws_instance.web_server: Still destroying... (ID: i-04a2ef3c876c5c0ba, 30s elapsed)[0m[0m
+I, [2018-02-06T15:06:02.669920 #4654]  INFO -- default-ubuntu: [0m[1maws_instance.web_server: Still destroying... (ID: i-04a2ef3c876c5c0ba, 40s elapsed)[0m[0m
+I, [2018-02-06T15:06:12.670776 #4654]  INFO -- default-ubuntu: [0m[1maws_instance.web_server: Still destroying... (ID: i-04a2ef3c876c5c0ba, 50s elapsed)[0m[0m
+I, [2018-02-06T15:06:17.903743 #4654]  INFO -- default-ubuntu: [0m[1maws_instance.web_server: Destruction complete after 55s[0m[0m
+I, [2018-02-06T15:06:17.906725 #4654]  INFO -- default-ubuntu: [0m[1maws_security_group.instance: Destroying... (ID: sg-9840cdef)[0m[0m
+I, [2018-02-06T15:06:27.907652 #4654]  INFO -- default-ubuntu: [0m[1maws_security_group.instance: Still destroying... (ID: sg-9840cdef, 10s elapsed)[0m[0m
+I, [2018-02-06T15:06:29.453418 #4654]  INFO -- default-ubuntu: [0m[1maws_security_group.instance: Destruction complete after 11s[0m[0m
+I, [2018-02-06T15:06:29.455827 #4654]  INFO -- default-ubuntu: [0m[1m[32m
+I, [2018-02-06T15:06:29.456167 #4654]  INFO -- default-ubuntu: Destroy complete! Resources: 2 destroyed.[0m
+W, [2018-02-06T15:06:29.476201 #4654]  WARN -- default-ubuntu: Running command `terraform workspace select default`
+I, [2018-02-06T15:06:29.517299 #4654]  INFO -- default-ubuntu: [0m[32mSwitched to workspace "default".[0m
+W, [2018-02-06T15:06:29.531921 #4654]  WARN -- default-ubuntu: Running command `terraform workspace delete kitchen-terraform-default-ubuntu`
+I, [2018-02-06T15:06:29.575043 #4654]  INFO -- default-ubuntu: [0m[32mDeleted workspace "kitchen-terraform-default-ubuntu"![0m
+I, [2018-02-06T15:06:29.589550 #4654]  INFO -- default-ubuntu: Finished destroying <default-ubuntu> (2m39.24s).
+I, [2018-02-06T15:06:29.589844 #4654]  INFO -- default-ubuntu: Finished testing <default-ubuntu> (13m22.94s).

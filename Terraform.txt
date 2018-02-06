@@ -663,3 +663,104 @@ execute the command: terraform destroy
 
 
 Everytime that we change the s3 state configuration we need to remove the hidden .terraform configuration folder and execute again the terraform init command.
+
+
+
+https://www.terraform.io/intro/getting-started/variables.html
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+inspec init profile example_profile
+inspec exec example_profile
+
+insped exec sample_test.rb
+
+inspec exec /Users/jose.choque/Documents/GitHub/terraform-training/basic.instance.good/specs/base_spec.rb -t ssh://ubuntu@54.174.139.200 -i /Users/jose.choque/AWS-KeyPairs/JoseTest_KeyPair.pem
+
+inspec shell -t ssh://ubuntu@54.174.139.200 -i /Users/jose.choque/AWS-KeyPairs/JoseTest_KeyPair.pem
+
+
+*******************************************
+
+Use Multiple Types of Automated Tests (page 173 of 205 Terraform up and running)
+There are several different types of automated tests you may write for your Terraform
+code, including unit tests, integration tests, and smoke tests. Most teams should use a
+combination of all three types of tests, as each type can help prevent different types of
+bugs.
+Unit tests
+Unit tests verify the functionality of a single, small unit of code. The definition of
+unit varies, but in a general-purpose programming language, it’s typically a single
+function or class. The equivalent in Terraform is to test a single module. For
+example, if you had a module that deployed a database, then you may want to
+add tests that run each time someone modifies this module to verify that you can
+successfully run terraform apply on it, that the database boots successfully after
+running terraform apply, that you can communicate with the database and
+store data in it, and so on.
+
+
+Integration tests
+
+Integration tests verify that multiple units work together correctly. In a general-
+purpose programming language, you might test that several functions or classes
+
+work together correctly. The equivalent in Terraform is to test that several mod‐
+ules work together. For example, let’s say you have code in your “live” repo that
+combines one module that creates a database, another module that creates a clus‐
+ter of web servers, and a third module that deploys a load balancer. You may
+want to add integration tests to this repo that run after every commit to verify
+
+Automated Tests | 153
+
+that terraform apply completes without errors, that the database, web server
+cluster, and load balancer all boot correctly, that you can talk to the web servers
+via the load balancer, and that the data that comes back is coming from the data‐
+base.
+Smoke tests
+Smoke tests run as part of the deployment process, rather than after each com‐
+mit. You typically have a set of smoke tests that run each time you deploy to stag‐
+ing and production that do a sanity check that the code is working as expected.
+For example, when an app is booting, the app might run a quick smoke test to
+ensure it can talk to the database and that it is able to receive HTTP requests. If
+either of these checks fails, the app can abort the entire deployment before it
+causes any problems.
+
+
+
+
+Always run plan before apply. -> terraform plan -out=example.plan
+
+Always test Terraform changes in staging before production.
+
+Testing in staging is especially important because Terraform does not roll back changes
+in the case of errors. If you run terraform apply and something goes wrong, you
+have to fix it yourself. This is easier and less stressful to do if you catch the error in
+staging rather than production.
+
+This workflow should work for most use cases, but there are three caveats to be aware
+of that can significantly affect the workflow:
+• Some types of Terraform changes can be automated
+• Some types of Terraform changes can cause conflicts
+• Larger teams may need to use a deployment pipeline
+
+
+Test Kitchen works by creating the infrastructure we want to test, connecting to
+it, and running a series of tests to validate the right infrastructure has been built.
+The integration with Terraform comes via an add-on called kitchen-terraform.
+The kitchen-terraform add-on is installed via a gem.
+
+
+We’re going to need to install some prerequisites to get Test Kitchen up and run-
+ning.
+
+Prerequisites
+The biggest prerequisite is that Test Kitchen requires SSH access to any hosts upon
+which you want to run tests. It currently doesn’t support using a bastion or bounce
+host to get this connectivity. This means that unless you have SSH access to your
+hosts, Test Kitchen will not be able to run tests on hosts in private subnets or
+without public IP addresses.
+
+This is a big limitation right now. There’s an issue open to address
+using a bastion host to run tests on GitHub but nothing’s available yet.
+
+Test Kitchen is written in Ruby and requires Ruby 2.3.1 or later installed.

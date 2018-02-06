@@ -1,0 +1,17 @@
+---
+last_action: setup
+last_error: Train::UserError
+kitchen_terraform_output:
+  public_ip:
+    sensitive: false
+    type: string
+    value: 35.171.3.132
+  public_port:
+    sensitive: false
+    type: string
+    value: '8080'
+kitchen_terraform_group:
+  name: container
+  port: 22
+  username: ubuntu
+kitchen_terraform_hostname: localhost
