@@ -10,7 +10,7 @@ pipeline {
     }
 
   environment {
-      MY_VAR"Hello Worldx!!!"
+      MY_VAR = "Hello Worldx!!!"
 	}
 
 
